@@ -1,0 +1,197 @@
+{
+  "id": "wayne_app_sub_001",
+  "name": "影视站点合集 v1",
+  "description": "公共发布目录，指向 v1 下的兼容脚本。",
+  "updateTime": "2026-04-11T11:52:24.064Z",
+  "websites": [
+    {
+      "id": "czzy",
+      "name": "厂长资源",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/czzy.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/czzy.js",
+      "description": "获取的影视站点: 厂长资源"
+    },
+    {
+      "id": "fmovies",
+      "name": "fmovies",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/fmovies.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/fmovies.js",
+      "description": "获取的影视站点: fmovies"
+    },
+    {
+      "id": "bdys",
+      "name": "哔滴影视",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/bdys.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/bdys.js",
+      "description": "获取的影视站点: 哔滴影视"
+    },
+    {
+      "id": "ole",
+      "name": "欧乐🪜",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/ole.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/ole.js",
+      "description": "获取的影视站点: 欧乐🪜"
+    },
+    {
+      "id": "zxzj",
+      "name": "在线之家",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/zxzj.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/zxzj.js",
+      "description": "获取的影视站点: 在线之家"
+    },
+    {
+      "id": "libvio",
+      "name": "LIBVIO",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/libvio.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/libvio.js",
+      "description": "获取的影视站点: LIBVIO"
+    },
+    {
+      "id": "ai",
+      "name": "ギリギリ动漫",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/ai.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/ai.js",
+      "description": "获取的影视站点: ギリギリ动漫"
+    },
+    {
+      "id": "duboku",
+      "name": "独播库",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/duboku.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/duboku.js",
+      "description": "获取的影视站点: 独播库"
+    },
+    {
+      "id": "agedm",
+      "name": "AGE动漫",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/agedm.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/agedm.js",
+      "description": "获取的影视站点: AGE动漫"
+    },
+    {
+      "id": "4kav",
+      "name": "4k-av",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/4kav.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/4kav.js",
+      "description": "获取的影视站点: 4k-av"
+    },
+    {
+      "id": "hjkk",
+      "name": "韓劇看看",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/hjkk.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/hjkk.js",
+      "description": "获取的影视站点: 韓劇看看"
+    },
+    {
+      "id": "jpyy",
+      "name": "金牌影院",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/jpyy.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/jpyy.js",
+      "description": "获取的影视站点: 金牌影院"
+    },
+    {
+      "id": "saohuo",
+      "name": "燒火電影",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/saohuo.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/saohuo.js",
+      "description": "获取的影视站点: 燒火電影"
+    },
+    {
+      "id": "novipnoad",
+      "name": "NO視頻",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/novipnoad.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/novipnoad.js",
+      "description": "获取的影视站点: NO視頻"
+    },
+    {
+      "id": "xingya",
+      "name": "星芽短劇",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/xingya.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/xingya.js",
+      "description": "获取的影视站点: 星芽短劇"
+    },
+    {
+      "id": "gzys",
+      "name": "瓜子",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/gzys.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/gzys.js",
+      "description": "获取的影视站点: 瓜子"
+    },
+    {
+      "id": "iyftv",
+      "name": "愛壹帆",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/iyftv.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/iyftv.js",
+      "description": "获取的影视站点: 愛壹帆"
+    },
+    {
+      "id": "ystt",
+      "name": "影视天堂",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/ystt.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/ystt.js",
+      "description": "获取的影视站点: 影视天堂"
+    },
+    {
+      "id": "apple",
+      "name": "小蘋果",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/apple.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/apple.js",
+      "description": "获取的影视站点: 小蘋果"
+    },
+    {
+      "id": "aowu",
+      "name": "嗷嗚動漫",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/aowu.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/aowu.js",
+      "description": "获取的影视站点: 嗷嗚動漫"
+    },
+    {
+      "id": "xiaohys",
+      "name": "小紅影視",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/xiaohys.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/xiaohys.js",
+      "description": "获取的影视站点: 小紅影視"
+    },
+    {
+      "id": "jianpian",
+      "name": "荐片",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/jianpian.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/jianpian.js",
+      "description": "获取的影视站点: 荐片"
+    },
+    {
+      "id": "rrmj",
+      "name": "人人",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/rrmj.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/rrmj.js",
+      "description": "获取的影视站点: 人人"
+    },
+    {
+      "id": "anime1",
+      "name": "anime1",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/anime1.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/anime1.js",
+      "description": "获取的影视站点: anime1"
+    },
+    {
+      "id": "wwgz",
+      "name": "农民影视",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/wwgz.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/wwgz.js",
+      "description": "获取的影视站点: 农民影视"
+    },
+    {
+      "id": "7sefun",
+      "name": "七色番動漫",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/7sefun.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/7sefun.js",
+      "description": "获取的影视站点: 七色番動漫"
+    },
+    {
+      "id": "symx",
+      "name": "山有木兮",
+      "icon": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/icons/symx.png",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/v1/symx.js",
+      "description": "获取的影视站点: 山有木兮"
+    }
+  ]
+}

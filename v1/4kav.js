@@ -8,9 +8,17 @@ if (typeof $config_str === 'undefined') {
     var $config_str = '{}';
 }
 
+const cheerio = createCheerio()
+
 // tv
 
 const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Mobile/15E148 Safari/604.1'
+
+let lastPageCache = {
+    0: 1,
+    1: 1,
+    2: 1,
+}
 
 let appConfig = {
 
@@ -49,25 +57,13 @@ async function getConfig() {
 
 async function getCards(ext) {
     ext = argsify(ext)
-    // 頁數寫入cache
-    var lastPage = {
-        0: 1,
-        1: 1,
-        2: 1,
-    }
-    let val = $cache.get('av')
-    if (val) {
-        lastPage = JSON.parse(val)
-    }
-
     let cards = []
     let { id, page = 1, url } = ext
 
     if (page > 1) {
-        url += `/page-${lastPage[id] - page + 1}.html`
+        const lastPage = Number(lastPageCache[id] || 1)
+        url += `/page-${lastPage - page + 1}.html`
     }
-
-    $print(`url: ${url}`)
 
     const { data } = await $fetch.get(url, {
         headers: {
@@ -75,12 +71,13 @@ async function getCards(ext) {
         },
     })
 
-    const elems = $html.elements(data, '#MainContent_newestlist .virow .NTMitem')
-    elems.forEach((element) => {
-        const href = $html.attr(element, '.title a', 'href')
-        const title = $html.text(element, '.title h2')
-        const cover = $html.attr(element, '.poster img', 'src')
-        const subTitle = $html.text(element, 'label[title=分辨率]').split('/')[0]
+    const $ = cheerio.load(data || '')
+    $('#MainContent_newestlist .virow .NTMitem').each((_, element) => {
+        const href = $(element).find('.title a').attr('href') || ''
+        const title = ($(element).find('.title h2').text() || '').trim()
+        const cover = $(element).find('.poster img').attr('src') || ''
+        const subTitle = (($(element).find('label[title=分辨率]').text() || '').split('/')[0] || '').trim()
+        if (!href) return
         cards.push({
             vod_id: href,
             vod_name: title,
@@ -92,13 +89,12 @@ async function getCards(ext) {
         })
     })
 
-    // get lastpage
     if (page == 1) {
-        const pageNumber = $html.text(data, '#MainContent_header_nav .page-number')
-        const num = pageNumber.split('/')[1]
-        lastPage[id] = num
-        const jsonData = JSON.stringify(lastPage, null, 2)
-        $cache.set('av', jsonData)
+        const pageNumber = ($('#MainContent_header_nav .page-number').text() || '').trim()
+        const num = Number((pageNumber.split('/')[1] || '').trim())
+        if (num > 0 && id != null) {
+            lastPageCache[id] = num
+        }
     }
 
     return jsonify({
@@ -117,17 +113,19 @@ async function getTracks(ext) {
         },
     })
 
-    // 檢查是不是多集
-    let playlist = $html.elements(data, '#rtlist li')
+    const $ = cheerio.load(data || '')
+    const playlist = $('#rtlist li')
     if (playlist.length > 0) {
-        playlist.forEach((element) => {
-            let name = $html.text(element, 'span')
-            let url = $html.attr(element, 'img', 'src').replace('screenshot.jpg', '')
+        playlist.each((_, element) => {
+            let name = ($(element).find('span').text() || '').trim()
+            let playUrl = $(element).find('img').attr('src') || ''
+            playUrl = playUrl.replace('screenshot.jpg', '')
+            if (!playUrl) return
             tracks.push({
                 name: name,
                 pan: '',
                 ext: {
-                    url,
+                    url: playUrl,
                 },
             })
         })
@@ -161,7 +159,8 @@ async function getPlayinfo(ext) {
         },
     })
 
-    let playUrl = $html.attr(data, '#MainContent_videowindow video source', 'src')
+    const $ = cheerio.load(data || '')
+    let playUrl = $('#MainContent_videowindow video source').attr('src') || ''
 
     return jsonify({ urls: [playUrl] })
 }
@@ -179,12 +178,13 @@ async function _showtimeSearch(ext) {
         },
     })
 
-    const elems = $html.elements(data, '#MainContent_newestlist .virow .NTMitem')
-    elems.forEach((element) => {
-        const href = $html.attr(element, '.title a', 'href')
-        const title = $html.text(element, '.title h2')
-        const cover = $html.attr(element, '.poster img', 'src')
-        const subTitle = $html.text(element, 'label[title=分辨率]').split('/')[0]
+    const $ = cheerio.load(data || '')
+    $('#MainContent_newestlist .virow .NTMitem').each((_, element) => {
+        const href = $(element).find('.title a').attr('href') || ''
+        const title = ($(element).find('.title h2').text() || '').trim()
+        const cover = $(element).find('.poster img').attr('src') || ''
+        const subTitle = (($(element).find('label[title=分辨率]').text() || '').split('/')[0] || '').trim()
+        if (!href) return
         cards.push({
             vod_id: href,
             vod_name: title,

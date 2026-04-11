@@ -188,7 +188,7 @@ async function extractCards(url) {
 
 async function getTracks(ext) {
     ext = argsify(ext)
-    const url = ext.url || (ext.id ? (appConfig.site + ext.id) : '')
+    const url = normalizeSiteUrl(ext.url || ext.id || '')
     let groups = []
 
     const { data } = await $fetch.get(url, {
@@ -217,7 +217,8 @@ async function getTracks(ext) {
 
 async function getPlayinfo(ext) {
     const { url } = argsify(ext)
-    const { data } = await $fetch.get(url, {
+    const playPageUrl = normalizeSiteUrl(url || '')
+    const { data } = await $fetch.get(playPageUrl, {
         headers,
     })
     let pid = data.match(/var pid = (\d+);/)[1]
@@ -338,6 +339,13 @@ function __NST_SITE() {
     return (typeof appConfig !== 'undefined' && appConfig && appConfig.site) ? appConfig.site : '';
 }
 
+function normalizeSiteUrl(url) {
+    if (!url) return ''
+    if (/^https?:\/\//.test(url)) return url
+    if (url.startsWith('//')) return 'https:' + url
+    return appConfig.site + (url.startsWith('/') ? url : ('/' + url))
+}
+
 // === hkdoll.js compatible API ===
 
 async function getWebsiteInfo() {
@@ -427,7 +435,7 @@ async function search(keyword) {
     const result = JSON.parse(raw);
     return (result.list || []).map(item => ({
         id: item.vod_id,
-        title: item.vod_name,
+        title: item.vod_name, 
         cover: item.vod_pic,
         url: item.vod_id,
         description: item.vod_remarks || '',

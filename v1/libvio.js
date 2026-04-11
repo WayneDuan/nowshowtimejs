@@ -79,7 +79,8 @@ async function getCards(ext) {
 
 // getTracks 改成这样（兼容新结构）：
 async function getTracks(ext) {
-  const { url } = SITE + '/' + argsify(ext)
+  ext = argsify(ext)
+  const url = (ext.url && /^https?:\/\//.test(ext.url)) ? ext.url : (ext.url ? (appConfig.site + ext.url) : (ext.id ? (appConfig.site + ext.id) : ''))
   let groups = []
   const { data } = await $fetch.get(url, { headers })
   const $ = cheerio.load(data)

@@ -187,7 +187,8 @@ async function extractCards(url) {
 }
 
 async function getTracks(ext) {
-    const { url } = SITE + '/' + argsify(ext)
+    ext = argsify(ext)
+    const url = ext.url || (ext.id ? (appConfig.site + ext.id) : '')
     let groups = []
 
     const { data } = await $fetch.get(url, {

@@ -83,7 +83,7 @@ async function getCards(ext) {
 async function getTracks(ext) {
     ext = argsify(ext)
     let tracks = []
-    let url =SITE + '/' +  ext.url
+    let url = (ext.url && /^https?:\/\//.test(ext.url)) ? ext.url : (ext.url ? (appConfig.site + ext.url) : (ext.id ? (appConfig.site + ext.id) : ''))
 
     const { data } = await $fetch.get(url, {
         headers: {

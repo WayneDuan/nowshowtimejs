@@ -55,30 +55,37 @@ async function getTabs() {
         return ignore.some((element) => className.includes(element))
     }
 
-    const { data } = await $fetch.get(appConfig.site, {
-        headers: header,
-    })
-
-    let html
-    if (data.includes('SafeLine')) {
-        html = testFunc(data)
-    } else html = data
-    const $ = cheerio.load(html)
-
-    let allClass = $('ul.submenu_mi > li > a')
-    allClass.each((i, e) => {
-        const name = $(e).text()
-        const href = $(e).attr('href')
-        const isIgnore = isIgnoreClassName(name)
-        if (isIgnore) return
-
-        list.push({
-            name,
-            ext: {
-                url: appConfig.site + href,
-            },
+    try {
+        const { data } = await $fetch.get(appConfig.site, {
+            headers: header,
         })
-    })
+
+        let html = data
+        if (data.includes('SafeLine')) {
+            html = testFunc(data) || ''
+        }
+
+        if (html) {
+            const $ = cheerio.load(html)
+            let allClass = $('ul.submenu_mi > li > a')
+            allClass.each((i, e) => {
+                const name = $(e).text()
+                const href = $(e).attr('href')
+                if (!name || !href) return
+                const isIgnore = isIgnoreClassName(name)
+                if (isIgnore) return
+
+                list.push({
+                    name,
+                    ext: {
+                        url: href.startsWith('http') ? href : appConfig.site + href,
+                    },
+                })
+            })
+        }
+    } catch (error) {
+        $print('getTabs fallback: ' + error)
+    }
 
     return list
 }
@@ -128,7 +135,7 @@ async function getCards(ext) {
 async function getTracks(ext) {
     ext = argsify(ext)
     let tracks = []
-    let url =SITE + '/' + ext.url
+    let url = ext.url || (ext.id ? (appConfig.site + ext.id) : '')
 
     const { data } = await $fetch.get(url, {
         headers: header,

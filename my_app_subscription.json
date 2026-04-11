@@ -1,0 +1,107 @@
+{
+  "id": "wayne_app_sub_001",
+  "name": "福利订阅",
+  "description": "应用订阅集合",
+  "updateTime": "2026-04-04T12:00:00.000Z",
+  "websites": [
+    {
+      "id": "site_madou",
+      "name": "麻豆社",
+      "icon": "https://madou.club/favicon.ico",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/madounew.js",
+      "description": "获取的影视站点: 麻豆社"
+    },
+   
+    {
+      "id": "fmovies",
+      "name": "fmovies",
+      "icon": "https://fmovies.llc/favicon.ico",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/fmovies.js",
+      "description": "获取的影视站点: fmovies"
+    },
+    {
+      "id": "ole",
+      "name": "欧乐",
+      "icon": "https://api.olelive.com/favicon.ico",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/ole.js",
+      "description": "获取的影视站点: 欧乐影视"
+    },
+    {
+      "id": "ystt",
+      "name": "影视天堂",
+      "icon": "https://ysttv.com/favicon.ico",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/ystt.js",
+      "description": "获取的影视站点: 影视天堂"
+    },
+    {
+      "id": "wwgz",
+      "name": "农民影视",
+      "icon": "https://vip.wwgz.cn:5200/favicon.ico",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/wwgz.js",
+      "description": "获取的影视站点: 农民影视"
+    },
+    {
+      "id": "7sefun",
+      "name": "七色番動漫",
+      "icon": "https://www.7sefun.top/favicon.ico",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/7sefun.js",
+      "description": "获取的影视站点: 七色番動漫"
+    },
+    {
+      "id": "symx",
+      "name": "思源码",
+      "icon": "https://symx.cc/favicon.ico",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/symx.js",
+      "description": "获取的影视站点: 思源码"
+    },
+    {
+      "id": "aowu",
+      "name": "傲屋",
+      "icon": "https://aowu.cc/favicon.ico",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/aowu.js",
+      "description": "获取的影视站点: 傲屋"
+    },
+    {
+      "id": "apple",
+      "name": "苹果影视",
+      "icon": "https://apple.cc/favicon.ico",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/apple.js",
+      "description": "获取的影视站点: 苹果影视"
+    },
+    {
+      "id": "xiaohys",
+      "name": "小红花影视",
+      "icon": "https://xiaohys.cc/favicon.ico",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/xiaohys.js",
+      "description": "获取的影视站点: 小红花影视"
+    },
+    {
+      "id": "jianpian",
+      "name": "剪片",
+      "icon": "https://jianpian.cc/favicon.ico",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/jianpian.js",
+      "description": "获取的影视站点: 剪片"
+    },
+    {
+      "id": "rrmj",
+      "name": "日日美剧",
+      "icon": "https://rrmj.cc/favicon.ico",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/rrmj.js",
+      "description": "获取的影视站点: 日日美剧"
+    },
+    {
+      "id": "xingya",
+      "name": "星牙",
+      "icon": "https://xingya.cc/favicon.ico",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/xingya.js",
+      "description": "获取的影视站点: 星牙"
+    },
+    {
+      "id": "iyftv",
+      "name": "伊一影视",
+      "icon": "https://iyftv.cc/favicon.ico",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/iyftv.js",
+      "description": "获取的影视站点: 伊一影视"
+    }
+  ]
+}

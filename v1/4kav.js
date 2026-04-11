@@ -105,7 +105,7 @@ async function getCards(ext) {
 async function getTracks(ext) {
     ext = argsify(ext)
     let tracks = []
-    let url = ext.url
+    let url = normalizeSiteUrl(ext.url || ext.id || '')
 
     const { data } = await $fetch.get(url, {
         headers: {
@@ -125,7 +125,7 @@ async function getTracks(ext) {
                 name: name,
                 pan: '',
                 ext: {
-                    url: playUrl,
+                    url: normalizeSiteUrl(playUrl),
                 },
             })
         })
@@ -151,7 +151,7 @@ async function getTracks(ext) {
 
 async function getPlayinfo(ext) {
     ext = argsify(ext)
-    let url = ext.url.replace('www.', '')
+    let url = normalizeSiteUrl(ext.url || ext.id || '').replace('www.', '')
 
     const { data } = await $fetch.get(url, {
         headers: {
@@ -203,6 +203,13 @@ async function _showtimeSearch(ext) {
 
 function __NST_SITE() {
     return (typeof appConfig !== 'undefined' && appConfig && appConfig.site) ? appConfig.site : '';
+}
+
+function normalizeSiteUrl(url) {
+    if (!url) return ''
+    if (/^https?:\/\//.test(url)) return url
+    if (url.startsWith('//')) return 'https:' + url
+    return __NST_SITE() + (url.startsWith('/') ? url : ('/' + url))
 }
 
 // === hkdoll.js compatible API ===

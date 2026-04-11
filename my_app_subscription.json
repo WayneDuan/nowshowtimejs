@@ -5,14 +5,6 @@
   "updateTime": "2026-04-04T12:00:00.000Z",
   "websites": [
     {
-      "id": "site_madou",
-      "name": "麻豆社",
-      "icon": "https://madou.club/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/madounew.js",
-      "description": "获取的影视站点: 麻豆社"
-    },
-   
-    {
       "id": "fmovies",
       "name": "fmovies",
       "icon": "https://fmovies.llc/favicon.ico",

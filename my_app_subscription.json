@@ -68,13 +68,6 @@
       "description": "获取的影视站点: 小红花影视"
     },
     {
-      "id": "jianpian",
-      "name": "剪片",
-      "icon": "https://jianpian.cc/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/jianpian.js",
-      "description": "获取的影视站点: 剪片"
-    },
-    {
       "id": "rrmj",
       "name": "日日美剧",
       "icon": "https://rrmj.cc/favicon.ico",

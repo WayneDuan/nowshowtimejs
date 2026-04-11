@@ -4,6 +4,10 @@ const argsify = (str) => {
     return str;
 };
 
+if (typeof $config_str === 'undefined') {
+    var $config_str = '{}';
+}
+
 const cheerio = createCheerio()
 const CryptoJS = createCryptoJS()
 // prettier-ignore
@@ -695,7 +699,7 @@ async function getVideosByCategory(categoryId, page) {
     const categories = await getCategories();
     const category = categories.find((item) => item.id === String(categoryId));
     if (!category) return [];
-    const extObj = { ...category.ext, page: page || 1 };
+    const extObj = Object.assign({}, (category && category.ext) ? category.ext : {}, { page: page || 1 });
     const raw = await getCards(JSON.stringify(extObj));
     const result = JSON.parse(raw);
     return (result.list || []).map(item => ({

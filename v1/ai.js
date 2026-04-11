@@ -14,7 +14,9 @@ const headers = {
   'Origin': 'https://bgm.girigirilove.com',
   'User-Agent': UA,
 }
-const SITE = appConfig.site;
+function __NST_SITE() {
+    return (typeof appConfig !== 'undefined' && appConfig && appConfig.site) ? appConfig.site : '';
+}
 const appConfig = {
   ver: 1,
   title: "ギリギリ动漫",
@@ -213,8 +215,8 @@ async function getWebsiteInfo() {
   return {
     name: appConfig.title,
     description: appConfig.title,
-    icon: SITE + '/favicon.ico',
-    homepage: SITE,
+    icon: __NST_SITE() + '/favicon.ico',
+    homepage: __NST_SITE(),
   };
 }
 
@@ -230,7 +232,7 @@ async function getVideosByCategory(categoryId, page) {
   const categories = await getCategories();
   const category = categories.find((item) => item.id === String(categoryId));
   if (!category) return [];
-  const extObj = { ...category.ext, page: page || 1 };
+  const extObj = Object.assign({}, (category && category.ext) ? category.ext : {}, { page: page || 1 });
   const raw = await getCards(JSON.stringify(extObj));
   const result = JSON.parse(raw);
   return (result.list || []).map(item => ({

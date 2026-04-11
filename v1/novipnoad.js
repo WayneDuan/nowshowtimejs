@@ -4,6 +4,10 @@ const argsify = (str) => {
     return str;
 };
 
+if (typeof $config_str === 'undefined') {
+    var $config_str = '{}';
+}
+
 const cheerio = createCheerio()
 
 const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_2 like Mac OS X) AppleWebKit/604.1.14 (KHTML, like Gecko)'
@@ -16,9 +20,9 @@ function sleep(ms) {
 }
 
 // https://github.com/NanoCat-Me/utils/blob/main/URL.mjs
-class URL {
+class NSTURL {
     constructor(url, base = undefined) {
-        const name = 'URL'
+        const name = 'NSTURL'
         const version = '2.1.2'
         // $print(`\n🟧 ${name} v${version}\n`)
         url = this.#parse(url, base)
@@ -89,7 +93,7 @@ class URL {
     }
 
     toJSON() {
-        return JSON.stringify({ ...this })
+        return JSON.stringify(Object.assign({}, this))
     }
 }
 
@@ -437,7 +441,7 @@ async function getPlayinfo(ext) {
 
             setGlobal('history', { length: 3, state: null, pushState: () => {}, replaceState: () => {} })
 
-            const parsedUrl = new URL(playerUrl)
+            const parsedUrl = new NSTURL(playerUrl)
             setGlobal('location', {
                 href: playerUrl,
                 hostname: parsedUrl.hostname,
@@ -715,7 +719,9 @@ function _0x2b01e7(_0x12f758, _0xda9b8e) {
     return _0xe5da02
 }
 
-const SITE = appConfig.site;
+function __NST_SITE() {
+    return (typeof appConfig !== 'undefined' && appConfig && appConfig.site) ? appConfig.site : '';
+}
 
 // === hkdoll.js compatible API ===
 
@@ -723,8 +729,8 @@ async function getWebsiteInfo() {
     return {
         name: appConfig.title,
         description: appConfig.title,
-        icon: SITE + '/favicon.ico',
-        homepage: SITE,
+        icon: __NST_SITE() + '/favicon.ico',
+        homepage: __NST_SITE(),
     };
 }
 
@@ -741,7 +747,7 @@ async function getVideosByCategory(categoryId, page) {
     const categories = await getCategories();
     const category = categories.find((item) => item.id === String(categoryId));
     if (!category) return [];
-    const extObj = { ...category.ext, page: page || 1 };
+    const extObj = Object.assign({}, (category && category.ext) ? category.ext : {}, { page: page || 1 });
     const raw = await getCards(JSON.stringify(extObj));
     const result = JSON.parse(raw);
     return (result.list || []).map(item => ({

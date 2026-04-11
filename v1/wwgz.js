@@ -4,6 +4,10 @@ const argsify = (str) => {
     return str;
 };
 
+if (typeof $config_str === 'undefined') {
+    var $config_str = '{}';
+}
+
 const cheerio = createCheerio()
 
 const UA ='Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.1 Mobile/15E148 Safari/604.1'
@@ -196,7 +200,9 @@ async function SearchAll(ext) {
     })
 }
 
-const SITE = appConfig.site;
+function __NST_SITE() {
+    return (typeof appConfig !== 'undefined' && appConfig && appConfig.site) ? appConfig.site : '';
+}
 
 // === hkdoll.js compatible API ===
 
@@ -204,8 +210,8 @@ async function getWebsiteInfo() {
     return {
         name: appConfig.title,
         description: appConfig.title,
-        icon: SITE + '/favicon.ico',
-        homepage: SITE,
+        icon: __NST_SITE() + '/favicon.ico',
+        homepage: __NST_SITE(),
     };
 }
 
@@ -221,7 +227,7 @@ async function getVideosByCategory(categoryId, page) {
     const categories = await getCategories();
     const category = categories.find((item) => item.id === String(categoryId));
     if (!category) return [];
-    const extObj = { ...category.ext, page: page || 1 };
+    const extObj = Object.assign({}, (category && category.ext) ? category.ext : {}, { page: page || 1 });
     const raw = await getCards(JSON.stringify(extObj));
     const result = JSON.parse(raw);
     return (result.list || []).map(item => ({

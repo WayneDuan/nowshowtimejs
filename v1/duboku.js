@@ -4,6 +4,10 @@ const argsify = (str) => {
     return str;
 };
 
+if (typeof $config_str === 'undefined') {
+    var $config_str = '{}';
+}
+
 const cheerio = createCheerio()
 const UA =
 
@@ -648,7 +652,9 @@ function base64decode(str) {
     return out
 }
 
-const SITE = appConfig.site;
+function __NST_SITE() {
+    return (typeof appConfig !== 'undefined' && appConfig && appConfig.site) ? appConfig.site : '';
+}
 
 // === hkdoll.js compatible API ===
 
@@ -656,8 +662,8 @@ async function getWebsiteInfo() {
     return {
         name: appConfig.title,
         description: appConfig.title,
-        icon: SITE + '/favicon.ico',
-        homepage: SITE,
+        icon: __NST_SITE() + '/favicon.ico',
+        homepage: __NST_SITE(),
     };
 }
 
@@ -686,7 +692,7 @@ async function getVideosByCategory(categoryId, page, sort) {
     const categories = await getCategories();
     const category = categories.find((item) => item.id === String(categoryId));
     if (!category) return [];
-    const extObj = { ...category.ext, page: page || 1, filters: { by: sort || '' } };
+    const extObj = Object.assign({}, (category && category.ext) ? category.ext : {}, { page: page || 1, filters: { by: sort || '' } });
     const raw = await getCards(JSON.stringify(extObj));
     const result = JSON.parse(raw);
     return (result.list || []).map(item => ({
@@ -767,5 +773,6 @@ module.exports = {
     getVideosByCategory,
     getVideoList,
     getVideoDetail,
+    getPlayUrl,
     search,
 };

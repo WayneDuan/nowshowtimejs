@@ -1,2 +1,473 @@
-/* share-obfuscated: converted/hkdoll.js */
-(function(){const k="iejrkC57G4pq";const d="a.a.4.1.v.2r.2e.2n.y.29.2.o.6.1x.2f.2a.8.1d.28.2e.1f.29.1f.p.c.0.o.r.4.2z.s.c.25.2f.v.v.q.h.22.1d.p.1m.1x.1v.14.3i.z.29.2c.1x.9.0.e.y.1t.2a.4.1y.9.1.t.a.w.x.1v.2y.e.1p.25.2f.v.v.q.h.22.13.16.2r.8.n.2o.3d.v.b.0.9.6.j.1w.3a.r.7.2v.s.p.x.1.a.4.n.28.2r.3a.2v.i.k.p.x.1.a.4.n.23.c.2u.n.3a.3.1b.1t.21.9.3.p.e.2r.3c.2e.10.k.1r.y.21.1p.1v.2a.16.1f.1x.2j.y.2r.l.j.y.c.u.2l.2l.37.0.p.3a.q.1t.1w.21.25.x.1m.1r.e.3d.r.2v.2g.p.q.c.1x.19.n.8.14.2i.u.2v.2q.l.3.q.c.5.s.1w.36.2.p.3b.k.1p.u.b.c.6.n.1w.36.0.36.3a.0.20.29.1m.4.c.j.p.16.q.1.3b.0.2m.1s.26.2m.2o.h.4.19.1y.1v.2v.2v.1l.11.18.1x.2f.2a.24.17.1t.1v.1j.1z.22.2m.1y.d.5.s.c.14.2i.2h.w.28.v.t.5.j.3.m.e.18.r.2c.14.2h.2f.22.2r.6.5.s.o.1j.l.3i.0.3e.1r.z.18.1m.1q.1f.15.g.l.a.2v.33.2f.fl7.lln.jg5.fkg.r78.u7u.2s.p.n.2o.ffd.h3h.1c.1r.r6r.u7v.2d.1z.2s.3a.2n.1a.2i.l.2.c.1x.1m.t.p.19.i.2y.3g.1q.3e.t.c.h.22.6.a.x.1y.38.12.2f.o.k.21.2g.22.s.u.1b.2h.c.25.2g.l.5.21.m.f.1.o.16.2i.2h.l.29.h.l.g.1x.2f.2a.d.y.2h.1w.y.f.3e.3f.a.a.4.1.v.2r.2f.2e.1g.29.1k.k.8.1.f.0.o.2r.8.n.1o.1q.28.29.26.1c.p.n.p.32.38.28.y.2i.4.2e.2b.1x.1r.1f.1z.21.l.n.2o.39.j.i.c.l.u.2d.29.2r.i.1v.y.24.4.2m.1.h.7.u.1z.y.1x.1z.17.2l.j.g.t.c.5.s.1w.1n.2l.1v.16.2g.2j.9.4.9.1y.j.r.1f.2h.2m.10.2d.4.o.6.b.1x.a.6.1b.e.1y.3e.4.2m.20.1x.27.1x.2g.28.1e.8.7.2x.c.2f.2l.2r.1x.22.2d.16.w.2e.2a.1j.1s.2l.1p.8.b.d.7.a.10.28.g.3h.k.2f.r.8.20.w.y.1z.15.2c.c.1i.9.1s.2n.28.21.g.q.1y.0.3f.c.1i.9.1s.2n.29.21.f.s.1y.m.2u.c.1i.9.1s.2n.2m.21.f.s.28.1e.8.7.2x.2.2f.2l.2r.1x.22.2d.1l.12.2b.2a.1h.29.2.2e.2b.1x.1l.1n.1r.6.l.s.2v.j.2n.2e.1x.33.22.2a.24.c.1z.2m.w.2l.u.2e.2b.1x.1l.1n.1r.6.p.1p.2v.k.2f.y.c.6.1z.1g.e.1j.2e.2n.2y.2v.p.5.c.1u.28.2a.24.1c.2c.2i.y.p.v.3.0.2.3.s.24.33.1r.n.2v.j.z.k.a.20.18.n.v.w.2l.q.a.2j.k.k.26.2n.22.2d.5.y.1v.2m.w.2d.4.k.26.21.2o.2a.23.2s.2u.2a.10.p.1i.k.t.6.2.2n.1b.12.1y.1v.2o.e.28.2e.d.a.9.7.6.12.2j.1v.2o.o.3e.c.2a.33.2o.j.o.1m.2j.2c.2v.2a.5.v.a.h.3.t.5.2r.28.2h.1g.1t.2.k.1m.0.p.1.2.18.2j.v.32.k.b.3f.21.1x.3.k.23.2z.1y.2a.1g.1z.p.u.7.1j.f.j.f.1m.s.n.1h.29.4.4.r.b.29.3c.23.2r.2c.1s.12.2l.4.29.25.3.f.6.8.17.r.28.y.1s.2g.y.w.1d.1b.2a.1s.2r.i.o.2o.o.28.a.21.d.f.j.f.12.1z.1w.3h.k.i.g.q.0.y.n.a.13.28.1x.1g.o.28.4.q.0.o.1f.c.12.2j.1v.3h.k.11.1c.21.o.1v.21.2p.2r.l.1w.y.1z.3.o.6.b.1k.n.a.13.24.n.3e.k.4.3.s.0.29.3c.m.21.1r.29.1e.2i.j.5.0.a.4.2a.v.18.38.2d.1g.2j.s.4.t.0.1r.0.7.2z.1s.1x.17.t.28.a.2r.1x.22.r.d.2r.t.m.1e.1y.s.2g.21.n.f.6.u.1d.2j.n.2o.j.23.3f.21.1x.9.t.5.1c.1t.n.1e.k.25.29.1m.h.o.r.5.10.t.1u.1h.2g.2h.2n.t.n.3.v.1v.2y.e.1p.2v.k.p.n.21.25.23.7.1u.2r.1z.2a.1f.1t.2.v.21.1u.25.21.2p.2r.l.2m.x.k.2g.4.1z.m.u.j.p.1j.1y.2o.1a.1s.o.2h.26.d.u.6.r.3d.q.o.2o.t.28.d.l.1x.v.2k.o.1j.2c.1x.1f.1z.13.o.t.d.1u.2d.3.1j.1t.1z.1g.e.2n.2m.26.24.1v.2a.p.12.1t.1u.1h.2i.28.4.2a.33.22.2a.2.11.l.v.1e.q.3.5.8.n.u.1.1o.16.1t.2n.33.j.2n.2m.26.24.1v.2a.p.12.1t.1u.1h.2i.28.2e.1.h.u.2.o.3d.i.n.30.k.5.22.2r.1x.22.r.d.2r.t.1u.2x.1z.4.g.r.h.p.11.2.1j.2l.v.2o.r.2f.2g.1s.1x.o.n.v.1i.1z.2h.2v.2v.1l.11.18.1x.1t.2a.u.3c.1r.n.2v.1y.l.5.s.n.4.2a.1k.a.2p.36.2v.v.28.2e.1y.1u.22.2h.23.1i.r.1x.y.1w.s.g.a.0.1u.2l.1h.v.r.8.r.r.2n.2l.21.1u.25.2j.28.21.20.1p.25.2a.5.v.a.h.3.t.5.2r.2f.1u.1a.2g.k.x.8.2.f.m.1q.1d.2h.v.1e.1y.s.2l.21.l.b.l.e.2y.l.24.25.k.28.o.f.1x.1u.2b.r.y.2a.2a.2v.20.c.29.p.4.d.n.23.3j.8.n.3a.t.28.3.c.h.v.0.5.2r.1s.1x.17.f.3e.29.21.6.5.s.o.1j.l.2h.14.1y.t.g.5.c.g.n.f.2r.8.n.1e.1y.s.2n.c.b.e.1.1o.16.1t.2n.33.j.2n.2e.1s.1x.2d.2a.u.1d.2h.n.3h.k.g.2d.i.g.o.u.m.30.2d.c.25.k.28.3.c.h.v.0.5.2r.2d.j.1o.2i.v.3.4.4.6.r.h.12.29.22.2r.27.0.g.e.0.n.2k.3.1j.2g.2j.13.f.3e.c.2r.1x.22.h.4.19.1y.1v.2v.2l.3.1k.e.b.5.0.e.13.l.a.2v.s.u.g.4.0.1v.2a.2e.3h.l.24.25.k.28.29.21.c.c.2a.1v.2q.2j.2e.16.29.2h.29.r.0.u.7.p.19.l.29.12.2g.3.k.2a.33.22.2a.23.2r.1z.2a.1f.1t.2.v.21.18.19.1o.10.h.34.2w.j.39.1e.y.1z.m.5.v.e.2z.t.2k.y.25.7.u.r.1.1v.2a.2e.3h.l.2h.12.2h.l.2n.0.b.9.u.u.13.28.1w.33.2n.l.8.u.a.o.m.1u.2y.e.1p.2v.k.d.22.2r.33.b.1.i.19.2e.n.x.1t.u.i.t.c.5.s.23.10.28.1v.j.2d.i.2.1t.24.22.9.2p.2r.l.2c.14.2i.3.5.21.9.3.1.v.2r.8.n.s.2x.23.3f.21.1x.9.t.5.1c.1t.n.1g.29.l.v.21.2g.22.s.e.1g.l.2s.y.1s.2g.2g.2a.33.22.2a.v.1d.24.n.1o.1q.28.29.21.1x.b.5.a.16.1t.n.y.2i.3.4.r.0.1l.n.o.1c.2k.2g.15.s.2h.22.2r.1x.22.2a.23.w.2i.2h.1g.1s.28.a.21.1.b.6.a.2r.20.n.3e.k.h.6.8.c.u.2a.27.11.28.1v.10.2k.2m.m.c.h.1u.x.y.n.34.r.2v.27.3e.29.21.1x.22.2a.23.17.28.2e.z.29.2.2.2b.1x.8.j.o.12.3h.2a.12.28.l.3.q.21.2o.2a.23.2r.l.n.2v.1t.3.k.r.10.d.n.5.1j.f.n.i.39.2k.3f.21.1x.22.2a.m.2y.e.1p.2v.k.28.29.a.a.4.1.v.2r.h.n.3e.k.j.p.c.0.o.r.4.31.2h.2g.12.28.2g.l.8.h.b.2a.n.1r.l.g.2o.t.23.3f.2r.1x.22.2a.23.2v.t.g.2x.1z.j.3.6.9.6.g.a.1d.l.2e.2o.t.2m.k.8.6.2.2i.1v.s.p.n.y.t.28.24.2f.1x.h.3c.23.2r.l.n.2v.k.j.u.7.m.u.2a.5.y.2g.2a.2v.9.28.2h.1t.1t.1u.n.1u.31.1t.2a.1r.1s.2g.2g.21.p.m.2a.24.2s.s.p.1f.1y.p.s.1t.24.1v.2k.p.12.1x.2j.12.2f.l.2h.1y.1l.p.2h.1w.10.p.n.2o.k.2f.2g.2a.33.22.2a.23.2r.l.n.10.2j.u.2.t.1x.2.0.e.11.l.a.2v.g.2g.k.1s.23.b.6.v.1d.t.g.1b.1y.l.n.26.24.29.3c.23.2r.l.n.2v.k.p.n.21.25.23.q.p.12.2b.n.1n.20.28.o.q.18.d.s.4.1d.28.2b.33.2i.h.s.c.24.1v.2a.p.12.1t.1u.1h.2i.23.3f.2r.1x.22.2a.23.2r.l.2c.14.2i.3.5.21.g.o.u.23.3i.l.2a.15.2f.v.l.c.1c.1k.1n.1v.1j.2i.3a.11.1z.v.t.s.h.f.13.p.1b.t.2n.1h.29.m.2g.1s.2m.2o.2a.23.2r.l.n.2v.2l.m.29.1t.1w.v.0.7.2r.21.23.2v.1z.l.k.7.23.2.j.o.2z.1s.1x.17.t.2h.29.r.0.u.7.p.19.e.1p.2v.k.28.29.21.1x.p.n.e.19.r.2e.z.28.2g.4.r.9.1v.21.2p.21.l.n.2v.k.28.29.5.c.p.6.1x.1f.1s.1w.1b.s.b.3f.21.1x.22.2a.23.2r.l.n.15.2d.t.k.2b.1x.4.j.6.12.l.23.1n.k.2f.kez.glw.go8.ga4.oi1.24.33.1r.n.2v.k.28.29.21.1x.22.n.j.1j.f.n.1o.k.5.3.5.1x.n.2m.2p.2r.l.n.2v.k.28.c.1s.2m.2o.2a.23.2r.l.22.32.f.3e.29.21.o.22.h.a.1j.2e.2n.2v.s.l.3.r.a.o.2j.23.1k.1r.n.2v.k.28.i.6.b.p.t.7.12.r.2j.14.2b.2g.2e.e.0.u.12.a.x.1y.n.y.1y.2.u.r.2n.25.2m.23.12.1z.1x.14.1y.2h.22.2r.1x.22.f.2p.21.l.n.1h.29.4.4.r.b.22.u.2.1c.1t.c.25.21.3e.3f.8.m.j.s.8.2r.2b.1u.15.2f.4.o.6.b.22.l.e.1j.2q.2a.11.1z.p.5.c.18.4.k.4.2z.s.n.1o.1q.28.29.r.0.u.7.p.19.l.24.25.k.28.29.21.b.b.v.e.3d.l.g.1b.2n.k.u.5.9.25.2m.2p.2r.l.n.2v.28.l.2.a.n.3.2.v.16.2i.2h.3h.k.2f.1l.6.b.d.1l.4.19.2a.37.14.2g.s.29.mv4.ftf.hq2.hpe.24.33.1r.n.2v.k.28.o.a.a.4.20.23.g.3g.2r.2.k.2j.29.26.22.c.j.t.16.2e.2g.15.q.p.i.6.1u.1y.3c.23.2r.l.n.1b.2j.t.k.p.4.d.n.29.2r.2u.3i.j.35.2k.3f.21.1x.n.21.2p.1q.1r.1p.12.1z.9.v.a.1x.c.7.5.w.1t.2m.14.2i.28.m.c.h.15.j.v.12.2a.2g.1h.2l.l.2.1t.24.22.9.2p.2r.l.2m.x.k.2g.5.8.7.p.1d.a.w.2l.2a.32.k.2.k.t.g.o.s.23.1j.2c.2d.1g.3b.h.i.1.0.29.3c.2p.2r.l.2c.14.2i.3.5.21.h.b.g.o.2r.8.n.12.1v.h.o.t.1x.d.n.v.n.2c.2d.1g.s.2h.22.2r.33.22.2a.v.y.2f.1w.4.2d.j.p.c.1x.2f.2a.v.y.2f.1w.2x.2h.h.1.1t.25.u.j.9.33.l.2m.15.28.l.9.1s.1x.2f.24.23.2z.26.1p.2v.k.28.29.0.1.28.2a.1k.1j.1z.2m.15.2b.2g.o.7.1.f.a.23.2w.l.6.32.o.3e.29.21.1x.22.s.a.1a.28.d.2v.1s.h.j.1z.b.b.v.e.33.1r.n.2v.k.28.k.h.h.28.2a.v.y.2f.p.y.24.4.2l.2r.1x.22.f.1u.2y.e.1p.2v.k.4.g.b.m.15.j.8.17.28.n.3e.k.4.g.b.m.15.j.8.17.28.p.x.2l.s.5.c.n.1u.2i.v.y.2f.u.2v.9.26.29.0.m.z.l.5.18.1z.2a.z.s.4.g.b.23.4.j.6.12.s.n.3e.9.25.29.f.4.6.1.e.2y.e.1p.2v.k.2.k.t.g.o.s.23.1j.2c.2d.1g.3b.h.i.1.0.29.3c.m.21.1r.2e.1g.25.u.i.21.3.v.s.8.1j.2k.2g.15.k.n.k.t.1f.3.m.e.18.1y.39.1q.3b.h.5.c.2.5.0.i.2z.2e.2e.1f.29.n.u.r.s.z.m.1z.2r.1x.2e.w.29.2h.29.i.33.22.2a.8.18.2j.1w.1f.k.j.g.t.0.d.t.p.16.28.1w.2v.9.28.g.u.4.3.6.23.10.28.1v.4.2d.4.k.e.a.o.r.e.1c.t.u.3g.1q.28.29.a.a.4.1.v.2r.2e.2e.1f.29.n.u.r.s.22.27.23.w.2c.1v.y.2b.v.3.0.0.p.2k.d.16.2j.2b.33.s.p.5.c.8.1v.2a.2e.3h.l.2m.1f.29.t.2n.0.1.22.27.2e.3i.l.2s.1f.1y.p.v.e.25.9.j.v.12.2a.2g.1h.25.1l.l.1s.24.29.3c.23.2r.2e.2g.15.1z.4.29.a.4.u.n.c.18.1z.26.i.1y.s.29.2c.1x.9.j.v.12.2a.2g.1h.25.28.2f.27.1x.9.j.v.12.2a.2g.1h.25.2m.k.h.h.22.25.23.w.2c.1v.y.2b.v.3.g.23.f.a.v.31.1s.1x.17.k.22.29.1m.18.1q.1j.23.2w.l.g.2w.j.23.3f.21.1x.o.n.v.1i.1z.2h.2v.2b.l.5.1r.c.e.n.4.f.2k.1w.1f.s.0.g.e.0.1y.2a.8.y.1t.2a.w.2j.2.8.1o.n.6.2j.28.21.20.1p.25.2d.3.8.7.6.22.k.u.19.2e.1v.1a.2j.u.29.e.0.u.10.2.13.28.2g.b.2l.3.5.1t.l.b.l.e.33.l.2c.12.1s.l.m.6.n.j.13.p.1b.s.n.1o.1q.28.29.8.i.b.r.v.2r.28.2h.1g.1t.2.k.1m.0.p.1.2.18.2j.v.32.f.3e.3f.21.1x.9.t.5.1c.1t.n.10.1t.2.3.c.b.u.y.a.10.28.n.3e.k.0.g.e.0.22.e.n.2r.4.c.25.k.28.i.6.b.p.6.23.x.2c.1w.y.2p.2.t.21.2g.22.h.a.1j.28.28.14.1y.9.10.r.9.22.e.n.2r.2u.3i.j.35.28.2i.21.1u.1x.2d.28.21.l.n.10.2j.u.2.t.1x.v.0.7.2r.8.n.11.1t.p.t.d.1h.b.l.e.13.2o.1x.17.s.i.g.q.0.1r.0.7.33.l.2c.1e.1y.2.k.7.h.1m.j.c.12.s.c.25.1q.28.29.a.a.4.1.v.2r.26.n.z.2d.4.g.21.o.22.27.23.y.1u.2e.1a.1s.28.2d.f.0.u.h.3.31.2a.2a.1f.s.5.3.5.21.22.9.2p.2r.l.n.2v.2k.l.g.d.0.o.1.29.2r.2f.2e.1g.29.1k.k.8.1.f.0.o.33.1r.n.2v.k.28.4.q.0.o.1f.c.12.2j.1v.3h.k.11.1c.1x.33.22.2a.m.2y.e.1p.25.k.28.i.6.b.p.6.23.2v.l.a.2v.2f.o.k.c.n.3.t.1x.1b.2i.2e.z.s.k.g.t.4.22.e.n.2r.i.g.32.f.3e.29.21.6.5.s.o.1j.l.1t.1a.28.l.u.q.1x.2f.2a.27.2z.i.p.1d.2l.k.k.6.20.3.6.e.1a.i.u.3g.1q.28.29.a.a.4.1.v.2r.2h.2m.1g.1s.28.24.21.1q.1j.21.2p.21.l.n.1d.2l.k.k.6.m.1w.n.a.w.2l.v.33.2z.2k.29.c.9.f.v.e.19.1t.u.2v.9.26.29.i.33.22.2a.23.2r.2e.2g.15.1z.4.29.5.c.4.p.23.3i.l.j.33.29.s.k.4.0.4.6.1u.31.2b.2m.15.28.2g.2e.1z.h.2.7.6.x.l.2e.2o.t.23.3f.21.1x.22.2a.8.18.2j.1w.1f.k.o.3.c.3.22.27.23.1b.2k.2h.18.q.h.5.t.n.1u.2d.3.1d.28.29.2o.t.23.3f.21.1x.22.2a.8.18.2j.1w.1f.k.4.o.t.9.f.2a.2e.2r.t.2j.1a.2i.r.2n.8.h.u.0.1v.2s.1t.2m.1f.2g.l.2e.1s.1x.m.e.23.1b.2k.2h.18.q.4.k.h.h.1u.2j.23.1r.21.n.2o.j.2h.2n.t.n.3.v.1v.2y.e.1p.25.k.28.29.21.6.5.s.o.1j.l.2m.16.2b.28.24.21.1t.1u.n.7.12.2g.2a.15.1s.2h.2n.f.c.4.m.1v.2s.r.1v.1b.1t.t.j.21.c.7.l.24.2y.e.1p.2v.k.28.29.a.a.4.1.v.2r.2e.2g.1d.29.2.29.2c.1x.3.v.c.31.2c.1v.1f.1y.2g.2e.d.4.u.j.1y.1c.1z.2c.2o.t.28.d.l.1x.3.v.c.31.2c.1v.1f.1y.2g.2e.q.n.9.2d.1u.2r.21.23.2v.j.2f.22.2r.33.22.2a.23.2r.2e.2g.15.1z.4.29.q.g.8.12.2.1j.2h.2a.2v.9.28.2h.2r.1x.22.2a.23.2r.l.j.33.29.s.k.4.0.4.6.1u.31.2b.2m.15.28.2g.2e.1z.1.v.0.a.1j.2k.2g.2o.t.2m.5.c.t.u.2i.1u.2r.21.23.25.k.28.29.21.1x.22.2e.1v.12.2h.2a.16.29.u.5.1s.23.c.r.5.13.t.g.2x.28.5.3.8.h.3.t.5.2s.s.p.1f.29.8.5.1t.24.22.e.n.21.l.n.2v.k.28.29.26.1u.2o.2a.23.2r.l.u.2x.1s.2.o.4.25.1v.21.2p.21.l.n.2v.k.j.u.7.m.u.2a.d.1i.2h.2j.f.1y.l.n.21.2g.22.6.4.2.2f.1w.14.2g.5.5.c.1c.o.u.1v.17.1z.2a.x.t.23.3f.21.1x.22.2a.2.11.l.v.2u.2a.5.t.5.19.o.n.d.2y.l.1x.y.1s.5.3.7.2m.2o.3c.23.2r.l.n.17.2l.3.5.1z.l.v.1.3.2z.26.1p.2v.k.28.29.21.1x.3.m.29.2r.2b.1u.17.2g.1k.3.c.3.1y.3c.23.2r.l.n.2v.k.4.o.t.9.f.20.23.1j.2k.1v.17.29.28.d.l.1x.25.kew.nm6.klg.u5p.g.2z.1q.28.29.21.1x.22.2a.8.18.1v.2a.1h.e.28.5.6.10.8.1.4.1b.1s.1v.y.2p.2.t.1t.6.5.4.e.1d.s.r.25.k.28.29.21.1x.22.7.p.1b.f.n.x.1t.s.t.x.n.f.k.1z.21.l.n.2v.k.28.29.d.0.p.h.p.16.1x.1v.1a.2j.u.23.21.5.k2k.tfx.29.2r.h.24.1g.1t.i.11.0.h.6.n.m.z.p.1p.2v.k.28.29.21.1x.9.0.e.y.1t.2a.j.2l.t.k.2b.1x.1a.j.v.12.r.2h.14.1v.2g.2g.1x.33.22.2a.23.2r.20.u.3g.1q.28.29.k.24.29.3c.2p.2r.l.1x.y.1s.5.3.7.1x.6.r.o.1j.e.1p.1m.1q.3e.g.q.s.4.h.23.11.1s.2h.10.1s.p.u.7.1x.d.n.v.l.2k.2b.y.2j.1g.k.t.4.3.u.1v.1h.2k.2b.y.2j.1l.l.1s.1x.h.3c.23.2r.2c.1s.12.2l.4.29.c.b.p.7.p.12.2u.2a.1g.1z.p.u.7.25.1v.21.2p.21.l.n.10.2j.u.2.t.1x.v.0.7.2r.8.n.1d.2l.k.k.6.18.e.21.2p.2r.l.2c.14.2i.3.5.21.u.22.m.a.1j.2c.n.1m.k.25.29.8.i.b.r.v.2r.h.29.y.1s.j.p.1z.2.f.6.1v.1i.1z.2j.2z.k.b.3f.21.1x.22.2a.3.12.2c.2b.y.1y.3.23.21.u.2o.2a.23.2r.l.n.2v.q.2m.2n.b.4.p.n.z.12.2c.2b.y.1y.3.2l.2r.1x.22.2a.23.2r.l.g.l.29.m.k.r.0.o.2d.29.2r.2u.3i.j.35.28.2i.21.1u.1x.2d.1z.21.l.n.2v.k.d.2l.2r.1x.22.2a.23.1i.1y.2a.1h.39.n.k.7.h.28.2a.1q.2.p.1p.2v.k.d.2g.2a.33.2o.2a.23.w.2i.2h.1g.1s.28.p.t.8.6.2a.2e.2r.29.2e.1f.2d.28.d.l.1x.25.2d.28.21.l.n.10.2j.u.2.t.1x.26.2a.2e.2r.2e.2n.y.29.2.o.6.23.6.t.a.13.t.2n.1f.2h.s.2g.2a.33.2o.2a.23.w.2i.2h.1g.1s.28.5.0.h.6.n.23.3i.l.j.33.j.4.o.t.9.f.2d.1u.31.1t.2a.1r.1s.2g.2g.1z.h.o.r.6.2z.s.n.1n.20.28.2e.r73.u7o.rkc.j3r.24.3c.1r.n.2v.2f.v.v.q.h.22.h.4.1h.28.1x.2v.9.28.2d.1t.1u.7.n.v.y.32.1z.1h.2j.0.k.r.h.j.27.21.18.2a.d.1a.2h.h.m.c.1z.1j.2d.1u.31.2c.1v.1f.1y.2g.2e.a.a.4.6.e.19.1t.g.32.k.c.d.21.1u.25.21.2p.2r.l.2c.14.2i.3.5.21.1.f.1.8.1d.2k.1z.1f.2l.v.v.21.2g.22.2e.1v.2s.2g.2a.1f.2d.17.v.8.8.f.27.21.13.28.1w.10.1y.p.1.t.c.5.s.21.u.i.u.2x.2d.4.5.r.25.25.h.4.19.1t.2a.15.1s.2f.2g.21.p.m.2a.v.16.1t.2j.y.f.3e.3f.21.1x.9.t.5.1c.1t.n.1h.29.3.u.5.g.u.r.4.19.1y.n.3e.k.17.18.2a.33.2o.2a.23.1j.1z.26.2v.27.3e.29.21.1x.22.h.4.19.1y.1v.2v.1z.j.3.0.l.u.12.e.1n.1t.n.3e.k.2c.2h.26.m.9.0.2.1f.1t.d.10.2j.u.5.8.c.4.1.1v.s.2y.2v.6.37.1h.1a.1i.1h.17.w.16.e.2u.2w.o.t.2f.2g.1z.h.f.a.v.2z.s.n.1n.20.28.2e.26.2m.2o.2a.23.2r.l.2c.14.2i.3.5.21.8.b.0.0.12.1z.n.3e.k.2f.7.8.n.22.19.1g.j.38.34.2.2z.1b.x.14.1j.17.1r.1k.s.2y.a.2t.j.23.3f.21.1x.22.2a.8.18.2j.1w.1f.k.3.5.8.n.u.2a.2e.2r.1y.2c.1h.2l.0.5.1p.0.i.6.1x.16.2j.2b.y.24.1r.n.1t.8.b.0.0.12.1z.u.3g.1q.28.29.21.1x.3.k.23.2z.1y.1v.12.1y.4.29.2f.2g.22.1u.1u.2r.26.1p.2v.k.28.29.21.1x.9.t.5.1c.1t.n.1h.29.t.g.0.b.22.27.23.1c.2e.1x.1a.1w.4.11.c.t.u.2k.o.1b.2k.2c.y.s.3.5.8.n.u.2a.1s.2r.2g.2e.1h.2n.l.3.1z.9.f.s.c.1j.2l.u.3g.1q.28.29.21.1x.22.2a.8.18.2j.1w.1f.k.l.v.d.1x.2f.2a.p.12.2g.2e.1a.2i.2m.o.7.1.f.a.10.11.t.g.2t.j.2h.22.2r.1x.22.2a.23.2r.l.2m.x.k.2g.k.7.1.22.24.23.37.s.n.1o.1q.28.29.21.1x.22.2a.23.2r.2e.2g.15.1z.4.29.p.4.o.j.6.2r.8.n.1h.29.t.g.0.b.1w.1.7.16.2e.2a.33.4.2k.29.c.b.e.2j.28.21.l.n.2v.k.28.29.21.1x.9.t.5.1c.1t.n.1j.2d.n.k.11.a.b.m.e.1d.l.a.2v.28.l.i.6.1.f.2i.r.y.1z.2e.16.t.23.3f.21.1x.22.2a.23.2r.l.n.10.2j.u.2.t.1x.f.v.9.12.29.2q.1h.2g.28.24.21.l.b.l.e.f.2i.2e.z.29.2.29.27.1v.22.2.a.10.28.3f.14.2d.k.k.r.23.q.u.a.1m.28.1x.2v.b.28.1.8.2.f.1q.4.y.29.2a.1h.q.0.t.8.s.f.0.1x.12.2g.2d.y.28.11.3.5.1x.28.2a.24.2s.e.1p.2v.k.28.29.21.1x.22.2a.2.11.l.v.y.2h.i.k.d.1c.o.u.1u.2r.26.1p.2v.k.28.29.21.1x.22.2a.23.2r.2e.2g.15.1z.4.29.p.9.b.b.1q.1d.2h.n.3e.k.v.t.d.2.f.6.1n.1b.2c.26.i.1y.s.2h.c.8.8.n.f.m.1z.2j.32.f.3e.29.21.1x.22.2a.23.2r.l.n.2v.2l.m.29.1t.l.6.j.i.m.1z.2j.32.k.b.3f.21.1x.22.2a.23.2r.l.n.2v.k.28.29.r.0.p.t.7.1i.1t.2m.14.2i.3.2n.p.g.p.q.1v.1k.1r.n.2v.k.28.29.21.1x.22.2a.23.2r.l.n.2v.2l.k.23.21.1u.b.7.v.18.i.r.25.k.28.29.21.1x.22.2a.23.2r.l.n.2v.k.28.v.8.8.f.20.23.2s.pnj.gbj.2o.o.3e.29.21.1x.22.2a.23.2r.l.n.2v.k.28.29.21.g.o.u.29.2r.1x.2j.12.25.11.3.5.21.2o.2a.23.2r.l.n.2v.k.28.29.21.1x.22.2a.23.1c.2k.25.y.e.28.2e.26.21.2o.2a.23.2r.l.n.2v.k.28.29.21.1x.22.f.1u.3c.1r.n.2v.k.28.29.21.1x.22.2a.23.1q.1r.n.2v.k.28.29.21.1x.22.f.2p.2r.l.n.2v.k.28.c.2r.1x.22.2a.23.1q.1r.n.2v.21.28.i.8.h.9.q.23.2z.28.1x.1h.2j.2.2g.21.u.2o.2a.23.2r.l.2c.14.2i.3.u.5.0.1w.u.4.10.t.g.w.29.4.13.0.1.f.t.1b.12.1t.2e.1a.2g.28.1.8.n.p.n.23.12.1z.1x.14.1y.22.2e.1x.1x.f.0.p.18.1z.u.3g.1q.28.29.k.33.2o.2a.23.1d.28.1v.1e.1y.u.29.i.33.22.2a.23.2r.2k.2b.3h.k.6.o.d.0.5.1n.f.33.1r.n.2v.k.28.5.0.h.6.n.1z.21.l.n.2v.k.j.u.v.0.o.20.23.1j.2i.3a.11.1z.v.t.s.h.f.13.p.1b.t.2c.14.1u.l.3.1s.21.2o.2a.23.2r.l.2b.y.1z.j.3.0.l.u.r.4.19.p.1p.2v.k.28.29.r.0.p.t.7.1i.1t.2m.14.2i.3.2l.2r.1x.22.f.28.21.20.1p.25.2d.3.8.7.6.22.k.u.19.2e.1v.1a.2j.u.29.q.0.b.0.8.17.t.2k.y.25.7.u.r.1.1y.2a.r.y.2a.2a.32.k.b.3f.21.1x.b.5.a.16.1t.n.y.2i.3.4.r.0.1l.n.o.1c.2k.2g.15.s.2h.22.2r.33.22.2a.8.18.2j.1w.1f.k.4.k.h.h.22.27.23.12.2j.2c.14.28.l.10.1n.18.15.t.6.1f.2i.2h.y.2i.4.2h.2.0.j.5.4.1d.29.n.1n.20.28.2e.26.24.29.3c.23.2r.2e.2g.15.1z.4.29.a.g.o.0.e.19.1t.2v.12.2b.l.29.2c.1x.q.j.c.12.l.23.1n.k.1t.22.2r.1x.22.h.4.19.1y.1v.2v.1t.2.t.21.2g.22.i.27.1k.2u.3i.j.35.d.2m.q.0.b.0.8.17.q.j.1o.1s.l.9.t.o.1x.2e.g.w.1s.1x.1h.29.u.5.1l.4.d.n.m.31.2l.1v.16.2g.g.22.2r.33.22.2a.8.18.2j.1w.1f.k.b.29.d.4.u.j.23.1q.l.a.2v.2d.7.g.0.h.22.2e.d.12.1t.2c.1b.q.n.k.t.25.v.0.7.33.l.24.25.k.28.29.21.d.f.j.f.12.1z.1w.3h.k.i.g.q.0.y.n.a.13.28.1x.1g.o.3e.29.21.1x.22.7.o.12.1z.3a.w.29.u.5.2b.1x.1r.1f.1z.21.l.n.1m.t.23.3f.2r.1x.22.h.4.19.1y.1v.2v.g.28.24.21.6.2.n.e.1d.2k.2g.2x.2g.v.g.d.25.e.j.v.y.l.23.1n.k.2f.2e.1s.2m.2o.2a.23.w.2i.2h.1g.1s.28.7.0.1.f.t.o.2r.8.n.2r.s.2f.2n.v.c.e.n.4.32.2k.1v.y.2h.2f.2g.2a.33.22.2a.8.18.2j.1w.1f.k.s.o.q.h.22.27.23.o.2w.c.25.1q.28.29.v.c.e.n.4.1c.r.2a.12.2f.o.2h.1t.1m.1y.2a.e.1b.28.2i.y.2i.4.2g.21.2g.2c.2a.g.21.l.n.2v.k.j.u.7.m.u.2a.7.16.2j.2k.2v.9.28.2d.1t.0.6.n.6.12.2j.1v.32.q.m.o.7.1.1u.2d.1x.1j.2l.1u.16.2e.28.g.26.24.29.3c.23.2r.l.n.10.2j.u.2.t.1x.2.0.e.11.l.a.2v.2g.p.v.2.23.b.6.v.1d.t.g.1b.1y.l.n.26.24.29.3c.23.2r.l.n.10.2j.u.2.t.1x.u.r.v.1b.28.n.3e.k.2g.t.0.b.1.2k.a.1j.1t.1x.33.j.4.o.t.9.f.2d.1u.2r.21.23.2v.2g.p.v.2.23.u.n.j.1j.t.u.2v.20.c.29.26.1u.1v.2k.v.1d.2k.2i.33.t.23.3f.2r.1x.22.2a.23.w.2i.2h.1g.1s.28.o.4.2.22.27.23.2v.t.2a.17.29.t.k.7.h.1v.2k.d.16.2j.2b.33.j.2m.5.1.g.7.g.23.16.2g.28.2o.t.23.3f.21.1x.22.2a.8.18.2j.1w.1f.k.j.u.v.0.o.2a.2e.2r.2k.2i.w.q.h.5.t.n.1u.2d.f.y.1t.2e.2y.1z.2.i.26.24.22.e.n.2r.2k.2i.w.q.h.5.t.n.1u.2d.o.1d.2e.g.32.k.c.d.21.1u.25.21.2p.21.l.n.2v.k.j.u.7.m.u.2a.o.1i.2f.2r.1a.1s.s.k.21.2g.22.2i.2p.2r.l.n.2v.k.28.2d.1t.0.6.n.6.12.2j.1v.32.q.m.o.7.1.1u.2d.1x.13.1s.1x.12.1s.p.u.26.24.1w.6.e.1n.1t.v.32.k.c.d.2r.1x.22.2a.23.2r.l.j.33.29.s.k.4.0.4.6.1u.31.2b.2m.15.28.2g.2e.1z.1.v.0.a.1j.2k.2g.15.j.2h.2n.t.0.i.6.1v.2y.l.23.1n.1q.28.29.21.1x.22.2a.24.2s.1r.n.2v.k.28.2g.1z.h.o.r.6.2z.s.c.25.1q.28.29.21.1x.9.t.5.1c.1t.n.x.1t.s.t.x.n.f.k.23.3i.l.1v.14.39.i.2.6.9.v.6.e.m.1z.2j.33.2k.2.k.f.24.29.3c.23.2r.l.n.1a.2a.28.2h.20.3.v.u.7.b.1z.2a.x.t.28.3.c.h.v.0.5.3c.1r.1p.2v.k.28.29.5.c.p.6.1x.1f.1s.1w.1b.s.b.3f.21.1x.22.2a.23.2r.2k.2b.3h.k.m.4.5.9.y.0.e.11.p.1p.2v.k.28.29.21.1x.u.r.v.1b.28.d.2v.1s.p.5.5.0.22.e.n.2r.i.kd9.nmq.kkz.u7c.2e.1x.33.22.2a.23.2r.l.n.10.2j.6.k.r.2n.22.6.4.2.2f.1w.14.2g.5.5.c.1c.o.u.1v.w.2i.1t.y.1y.2h.2l.2r.1x.22.2a.23.2r.l.1u.1h.2g.22.29.f.g.6.u.z.1d.28.29.2z.1q.28.29.21.1x.22.2a.f.12.1y.2c.1h.2l.0.5.0.a.4.20.23.z.k3n.thk.3h.k.2c.a.q.g.8.12.2.1j.2h.2a.1m.2c.2k.3f.21.1x.22.2a.23.2r.2e.1x.y.2d.4.k.1p.c.7.n.29.2r.35.2e.1f.29.2m.v.6.i.1u.2j.1z.21.l.n.2v.k.d.2g.2a.33.22.2a.m.2y.e.1p.25.k.28.3.c.h.v.0.5.2r.2h.2m.1g.1s.23.3f.k.33.2o.2l.1w.2r.o.q.2y.k.r7a.u74.r62.kj9.sfj.gd7.g46.jzn.l.q.2y.p.3e.3f.f.g.4.h.v.16.2i.2h.2v.28.l.i.6.1.f.2i.1g.37.25.2.36.c.i.1u.29.24.22.9.2p.2r.l.2c.14.2i.3.5.21.e.f.b.23.3i.l.2w.3b.24.1x.1w.29.7.2h.22.1x.1c.2h.2m.10.29.2g.2k.2i.2f.1v.21.2p.2r.l.2c.14.2i.3.5.21.0.4.h.p.1m.1x.2a.z.3b.v.v.f.1x.2f.2a.1g.37.25.2.36.c.i.1u.29.23.p.7.9.1c.1t.1x.1a.2i.n.2h.2h.21.22.19.2j.1n.0.2.3j.2e.1v.21.1z.9.f.s.c.1j.2l.n.2y.k.1v.1v.1s.2m.2o.2a.23.1d.28.1v.1e.1y.u.29.z.1i.11.1o.1x.1f.2c.1x.1g.29.2g.9.6.n.1a.n.8.2z.28.2h.10.1y.9.1.c.1.15.t.5.11.p.n.18.29.9.2g.1s.2m.2o.f.2p.21.2b.1u.15.2f.4.o.6.b.22.a.4.1d.35.2a.10.s.1b.1t.h.2e.8.1w.2a.38.2b.r.2v.2z.1s.9.2i.2a.c.22.e.38.s.n.1o.1q.28.29.5.0.u.2a.1g.37.25.5.11.29.j.1y.29.1x.2f.2a.24.2s.e.1p.2v.k.j.u.7.m.u.2a.1g.37.25.6.x.c.1t.1w.2n.1x.2f.2a.1g.37.25.4.34.2a.20.k.2m.23.6.n.5.10.1t.2n.3g.1q.28.29.f.a.o.2a.1v.1b.28.1v.2v.2z.1s.9.2l.7.2i.22.8.3f.l.a.2v.4.23.29.1i.2d.i.1y.9.37.d.2c.3j.k.24.29.1i.2d.i.1t.9.39.c.0.x.q.s.k.7.2.u.q.28.2r.2y.7.1r.0.i.1t.29.6.2a.2a.1s.3i.l.5.32.k.b.3f.21.1x.22.2a.8.18.2j.1w.1f.k.1b.1t.h.2e.2j.1s.d.37.28.n.3e.k.1b.1t.h.2e.8.1w.2a.38.2b.p.1g.1t.i.2.t.n.1u.19.2j.1n.1.2d.3b.c.j.21.1x.1x.2g.2j.28.21.l.n.2v.k.j.u.7.m.u.2a.1g.37.25.4.38.29.i.21.29.1x.2f.2a.1k.1j.1z.2m.15.2b.2m.n.r.a.7.1d.3.y.1z.38.14.28.l.2h.p.4.o.1.e.a.2j.1v.33.2z.1s.9.2i.2c.2g.k.2j.12.p.n.3a.2.2h.2g.2a.33.22.2a.23.2r.2e.2g.15.1z.4.29.1i.2d.i.1t.2h.34.28.29.36.k.25.29.1i.2d.i.1t.2k.11.d.2a.34.33.2g.1a.2h.t.2m.g.2j.3f.2e.f.2v.r.28.1v.1s.1x.27.2a.1g.37.25.6.x.c.1t.1w.2n.1k.29.3c.23.2r.l.n.o.4.8.1v.b.0.9.1x.2b.2r.u.a.2v.2v.4.3.0.b.d.2k.d.1d.2i.2i.4.2k.h.3.16.a.e.n.1v.s.5.27.38.7.l.j.29.2l.1w.h.3.y.1z.38.14.28.l.1c.t.25.2i.2j.23.t.l.2w.3b.24.1v.1v.2i.0.c.1z.1x.w.2l.2e.1h.3b.v.l.c.10.u.2i.2j.2y.s.c.25.k.28.c.2r.1x.22.0.e.1j.1s.1x.15.k.1b.1t.h.2f.8.n.8.38.d.c.25.21.3e.3f.f.g.4.h.v.16.2i.2h.2v.2j.s.l.e.0.u.y.7.y.24.2q.1h.2g.2g.k.4.7.f.m.1q.1d.2h.u.2v.27.3e.29.21.6.5.s.o.1j.l.1v.14.2n.l.v.21.2g.22.2i.e.1a.2f.2a.z.2p.2.t.1z.m.q.u.2.1j.t.g.3c.1s.v.q.c.b.2f.2d.1u.o.4.2y.2v.20.c.29.26.1u.1v.21.2p.2r.l.2m.x.k.2g.28.t.a.1.n.5.2r.21.23.2v.1s.v.q.c.b.1w.u.e.19.2a.1v.1b.k.24.29.2g.2d.1v.2a.p.12.1t.1u.1h.2i.28.2e.26.2m.2o.3c.23.2r.2e.2g.15.1z.4.29.t.4.3.u.23.3i.l.1v.14.2n.l.v.1z.m.6.r.8.12.t.q.3a.4.2h.22.2r.1x.22.h.4.19.1y.1v.2v.2n.l.8.21.2g.22.v.f.3a.t.1v.12.2l.s.2g.1z.m.6.r.8.12.t.f.2z.k.1u.1x.1s.23.p.2.7.16.1t.v.2o.j.2h.2n.r.0.s.n.p.1c.28.v.32.q.q.u.0.b.1u.2d.24.2y.e.1p.2v.k.j.u.7.m.u.2a.9.18.29.26.2v.9.28.5.6.e.f.s.1x.1c.2h.2m.10.29.2g.1t.1x.1x.1z.1v.2j.2y.e.1p.25.k.28.i.6.b.p.6.23.1d.2c.1s.2v.9.28.1a.2h.t.2n.1t.2m.3a.6.1.33.2e.v.l.g.21.22.p.e.1m.s.c.25.k.28.i.6.b.p.6.23.15.1y.2g.15.k.25.29.z.1i.11.1o.1x.1f.2c.1x.1g.29.2g.3.8.i.1v.21.2p.2r.l.1x.y.1s.5.3.7.1x.0.1.4.19.r.1w.1f.1y.l.g.4.1x.m.e.23.2s.i.c.25.21.3e.3f.f.g.4.h.v.16.2i.2h.2v.2h.k.1w.1t.j.1v.2a.g.21.l.n.1h.29.4.4.r.b.22.1d.p.1m.1x.1v.14.3i.z.2n.10.x.2n.2i.t.2y.r.1v.14.2v.4.3.0.b.d.2i.1u.3c.1r.22.25.1q.m.4.7.6.u.r.4.19.l.2w.3b.24.1x.1u.2k.28.2h.1w.1v.s.5.27.3a.6.k.1u.29.2e.1y.2a.1g.37.25.4.3i.5.m.i.2m.24.22.9.2p.2r.l.2j.y.1s.28.1a.2h.t.2a.h.8.w.d.4.2v.9.28.2e.26.2m.2o.2a.23.w.2i.2h.1g.1s.28.1a.2h.t.2m.1z.2i.37.3.6.2v.9.28.1a.2h.t.2h.23.2i.11.2e.0.2x.2g.l.v.e.h.2.21.2p.2r.l.29.14.1y.28.2h.5.0.u.2a.1g.37.25.4.34.7.1v.21.2g.1x.2f.2a.2j.3c.l.2w.3b.24.1v.1y.2i.2e.2a.1v.23.3j.l.2w.3b.24.1t.1v.d.2e.2a.1t.1x.1b.28.2h.w.1s.o.22.21.1m.2i.a.2g.38.6.4.3j.5.28.2i.2c.1x.2g.2j.23.1k.1r.n.2v.k.28.i.6.b.p.6.23.s.5.27.39.28.l.1u.c.28.22.27.23.2z.2y.7.1r.7.1z.1u.2i.2l.2j.2a.1w.2r.7.u.2v.h.28.1a.2h.t.2m.1z.2i.37.3.6.3g.1q.28.29.21.1x.9.t.5.1c.1t.n.o.4.8.1u.29.2b.e.m.2m.2r.8.n.1j.2d.2.2.c.18.4.6.1v.s.5.27.3a.6.k.1u.29.2e.1d.19.2j.1n.6.0.38.7.20.1s.1g.1x.1t.2a.1g.37.25.6.39.28.1v.21.2i.1q.1h.1u.j.34.2.4.38.c.1t.29.1u.1x.2j.1b.1z.2r.4.1.32.f.3e.29.21.1x.22.19.2j.1n.d.2c.10.2f.20.1u.21.26.2f.2a.1k.1j.1z.2m.15.2b.2m.n.r.a.7.1d.3.y.1z.38.14.28.l.2h.1i.2d.i.1t.2b.39.29.2b.36.k.1a.29.1i.2d.i.1t.2a.36.2b.2c.34.q.j.p.8.n.15.t.f.12.38.1v.33.2z.1s.9.2j.1.f.1t.e.3a.s.u.3g.1q.28.29.k.33.22.2a.p.12.1t.1u.1h.2i.28.1a.2h.t.2a.h.8.w.d.4.3g.1q.d.3f.2r.c.c.2a.1v.1j.24.1z.y.2j.m.29.4.a.e.7.7.12.l.m.3e.9.28.2e.s.b.e.n.d.16.2j.2a.z.j.28.2f.27.1x.7.t.f.1i.2h.2a.2x.29.8.1.6.n.u.1.1u.2r.26.1p.2v.k.t.u.d.g.6.n.1x.12.25.1z.14.1y.4.2.21.2g.22.9.2p.2r.l.n.2v.2b.l.5.1q.0.8.1.2.1j.28.3i.15.2a.v.2l.2r.1x.22.2a.23.10.28.1v.h.2l.k.k.6.15.3.1.v.33.1r.n.2v.k.28.m.c.h.1o.r.f.12.2i.37.y.1s.h.o.5.21.2o.2a.23.2r.l.1w.y.2d.2.i.1.21.2o.2a.23.2r.l.28.y.1s.1f.g.t.0.d.t.p.16.28.1w.2z.1q.28.29.21.1x.d.n.v.l.2k.2b.y.2j.3.1f.g.12.b.6.e.10.2i.1x.1q.o.3e.29.21.o.29.3c.m.21";const a=d.split('.');let s='';for(let i=0;i<a.length;i++)s+=String.fromCharCode(parseInt(a[i],36)^k.charCodeAt(i%k.length));(0,eval)(s);}());
+/*
+ * Local editable adapter
+ * Site: 玩偶姐姐
+ *
+ * This file is intentionally local-first (no remote SOURCE_URL / no eval).
+ */
+
+const __NST_SOURCE__ = (() => {
+  const g = (typeof globalThis !== 'undefined') ? globalThis : this;
+
+  if (typeof g.$config_str === 'undefined') g.$config_str = '{}';
+
+  if (typeof g.argsify !== 'function') {
+    g.argsify = function(v) {
+      if (v == null) return {};
+      if (typeof v === 'string') {
+        try { return JSON.parse(v); } catch (_) { return {}; }
+      }
+      if (typeof v === 'object') return v;
+      return {};
+    };
+  }
+
+  if (typeof g.jsonify !== 'function') {
+    g.jsonify = function(v) {
+      try { return JSON.stringify(v); } catch (_) { return '{}'; }
+    };
+  }
+
+const cheerio = createCheerio();
+const CryptoJS = createCryptoJS();
+
+const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1';
+const SITE = 'https://hongkongdollvideo.com';
+const baseHeaders = {
+  'User-Agent': UA,
+  'Referer': SITE + '/',
+  'Origin': SITE,
+};
+let appConfig = {
+    ver: 20260224,
+    title: 'hkdoll',
+    site: 'https://hongkongdollvideo.com',
+};
+
+async function getConfig() {
+    let config = appConfig;
+    config.tabs = await getTabs();
+    return jsonify(config)
+}
+
+async function getTabs() {
+    let list = [];
+    let ignore = ['亚洲成人视频'];
+    function isIgnoreClassName(className) {
+        return ignore.some((element) => className.includes(element))
+    }
+
+    const { data } = await $fetch.get(appConfig.site, {
+        headers: {
+            'User-Agent': UA,
+        },
+    });
+    const $ = cheerio.load(data);
+
+    let allClass = $('.scrollbar a');
+    allClass.each((_, e) => {
+        const name = $(e).text();
+        const href = $(e).attr('href');
+        const isIgnore = isIgnoreClassName(name);
+        if (isIgnore) return
+
+        list.push({
+            name,
+            ext: {
+                url: encodeURI(href),
+            },
+        });
+    });
+
+    return list
+}
+
+async function getCards(ext) {
+    ext = argsify(ext);
+    let cards = [];
+    let { page = 1, url } = ext;
+
+    if (page > 1) {
+        url = url + page + '.html';
+    }
+
+    const { data } = await $fetch.get(url, {
+        headers: {
+            'User-Agent': UA,
+        },
+    });
+
+    const $ = cheerio.load(data);
+
+    $('.video-item').each((_, element) => {
+        const href = $(element).find('.thumb a').attr('href');
+        const title = $(element).find('.thumb a').attr('title');
+        const cover = $(element).find('.thumb img').attr('data-src');
+        const subTitle = $(element).find('.duratio').text().trim();
+        cards.push({
+            vod_id: href,
+            vod_name: title,
+            vod_pic: cover,
+            vod_remarks: subTitle,
+            ext: {
+                url: href,
+            },
+        });
+    });
+
+    return jsonify({
+        list: cards,
+    })
+}
+
+async function getTracks(ext) {
+    ext = argsify(ext);
+    let tracks = [];
+    let url = ext.url;
+
+    const { data } = await $fetch.get(url, {
+        headers: {
+            'User-Agent': UA,
+        },
+    });
+
+    try {
+        const $ = cheerio.load(data);
+        const param = $('script:contains(__PAGE__PARAMS__)').text().split('var __PAGE__PARAMS__="')[1].split('"')[0];
+
+        let pageLoader = decode(param);
+        let embedUrl = pageLoader.player.embedUrl;
+        let playUrl = getPlayUrl(embedUrl);
+
+        tracks.push({
+            name: '播放',
+            pan: '',
+            ext: {
+                url: playUrl,
+            },
+        });
+    } catch (error) {
+        $print(error);
+    }
+
+    function decode(_0x558b38) {
+        let key = _0x558b38.slice(-32);
+        let encrypedConf = _0x558b38.substring(0, _0x558b38.length - 32);
+        let pageConfig = JSON.parse(xorDec(encrypedConf, key));
+
+        return pageConfig
+    }
+    function xorDec(_0x3b697f, _0x37f8e7) {
+        let _0x2bec78 = '';
+        const _0x1f8156 = _0x37f8e7.length;
+        for (let _0x4b08c8 = 0; _0x4b08c8 < _0x3b697f.length; _0x4b08c8 += 2) {
+            const _0x312f0e = _0x3b697f.substr(_0x4b08c8, 2),
+                _0x33eb88 = String.fromCharCode(parseInt(_0x312f0e, 16)),
+                _0x323ef5 = _0x37f8e7[(_0x4b08c8 / 2) % _0x1f8156];
+            _0x2bec78 += String.fromCharCode(_0x33eb88.charCodeAt(0) ^ _0x323ef5.charCodeAt(0));
+        }
+        return _0x2bec78
+    }
+
+    function getPlayUrl(embedUrl) {
+        let _0x1e8df = embedUrl.split('?token=')[1];
+        let _0x1df1c5 = _0x1e8df.slice(-10);
+        let _0x2c272d = md5(_0x1df1c5).slice(8, 24).split('').reverse().join('');
+        let _0x32366e = _0x1e8df.slice(0, -10);
+
+        var _0x4951c4 = {};
+        let _0x4049bd = _0x535536(_0x32366e, _0x2c272d);
+        _0x4951c4 = JSON.parse(_0x4049bd);
+        return _0x4951c4.stream
+    }
+    function md5(_0x1e8df) {
+        return CryptoJS.MD5(_0x1e8df).toString()
+    }
+    function _0x535536(_0x12d383, _0x391fc7) {
+        let _0x8ccc83 = '';
+        let _0x451061 = _0x391fc7.length;
+        for (let _0x373381 = 0; _0x373381 < _0x12d383.length; _0x373381 += 2) {
+            let _0x2de3e5 = (_0x373381 / 2) % _0x451061;
+            let _0x386dd5 = parseInt(_0x12d383[_0x373381] + _0x12d383[_0x373381 + 1], 16);
+            _0x8ccc83 += String.fromCharCode(_0x386dd5 ^ _0x391fc7.charCodeAt(_0x2de3e5));
+        }
+        return _0x8ccc83
+    }
+
+    return jsonify({
+        list: [
+            {
+                title: '默认分组',
+                tracks,
+            },
+        ],
+    })
+}
+
+async function getPlayinfo(ext) {
+    ext = argsify(ext);
+    const url = ext.url;
+    const headers = {
+        'User-Agent': UA,
+        Referer: appConfig.site + '/',
+    };
+
+    return jsonify({ urls: [url], headers: [headers] })
+}
+
+async function search(ext) {
+    ext = argsify(ext);
+    let cards = [];
+
+    let text = encodeURIComponent(ext.text);
+    let page = ext.page || 1;
+    let url = `${appConfig.site}/search/${text}/${page}.html`;
+
+    const { data } = await $fetch.get(url, {
+        headers: {
+            'User-Agent': UA,
+        },
+    });
+
+    const $ = cheerio.load(data);
+
+    $('.video-item').each((_, element) => {
+        const href = $(element).find('.thumb a').attr('href');
+        const title = $(element).find('.thumb a').attr('title');
+        const cover = $(element).find('.thumb img').attr('data-src');
+        const subTitle = $(element).find('.duratio').text().trim();
+        cards.push({
+            vod_id: href,
+            vod_name: title,
+            vod_pic: cover,
+            vod_remarks: subTitle,
+            ext: {
+                url: href,
+            },
+        });
+    });
+
+    return jsonify({
+        list: cards,
+    })
+}
+
+  return {
+    getConfig: (typeof getConfig === 'function') ? getConfig : null,
+    getTabs: (typeof getTabs === 'function') ? getTabs : null,
+    getCards: (typeof getCards === 'function') ? getCards : null,
+    getTracks: (typeof getTracks === 'function') ? getTracks : null,
+    getPlayinfo: (typeof getPlayinfo === 'function') ? getPlayinfo : null,
+    search: (typeof search === 'function') ? search : null
+  };
+})();
+
+function __nstParseMaybe(value) {
+  if (value == null) return null;
+  if (typeof value === 'string') {
+    try { return JSON.parse(value); } catch (_) { return null; }
+  }
+  if (typeof value === 'object') return value;
+  return null;
+}
+
+function __nstNormalizeCard(item) {
+  const card = item || {};
+  const ext = (card.ext && typeof card.ext === 'object') ? card.ext : {};
+
+  const id = card.vod_id || card.id || ext.url || card.url || '';
+  const title = card.vod_name || card.title || 'Untitled';
+  const cover = card.vod_pic || card.cover || '';
+  const url = ext.url || card.url || card.vod_id || '';
+
+  const descParts = [card.vod_remarks, card.vod_duration, card.description].filter(Boolean);
+
+  return {
+    id: String(id),
+    title: String(title),
+    cover: String(cover || ''),
+    url: String(url || ''),
+    description: descParts.join(' · ')
+  };
+}
+
+function __nstIconFromSite(site) {
+  const raw = String(site || '').trim();
+  if (!raw) return '';
+  const m = raw.match(/^(https?:\/\/[^/]+)/i);
+  const base = (m && m[1]) ? m[1] : raw.replace(/\/+$/, '');
+  return base ? (base + '/favicon.ico') : '';
+}
+
+function __nstTabId(tab, index) {
+  if (!tab) return String(index);
+  if (tab.id != null) return String(tab.id);
+  if (tab.ext && tab.ext.id != null) return String(tab.ext.id);
+  if (tab.name != null) return String(tab.name);
+  return String(index);
+}
+
+function __nstPickTab(configObj, categoryId) {
+  const tabs = Array.isArray(configObj.tabs) ? configObj.tabs : [];
+  const cid = String(categoryId || '');
+  return tabs.find((t, i) => __nstTabId(t, i) === cid) || tabs[0] || null;
+}
+
+async function __nstGetConfigObject() {
+  if (!__NST_SOURCE__.getConfig) return {};
+  return __nstParseMaybe(await __NST_SOURCE__.getConfig()) || {};
+}
+
+async function __nstGetTabsArray(configObj) {
+  if (Array.isArray(configObj.tabs) && configObj.tabs.length > 0) return configObj.tabs;
+  if (__NST_SOURCE__.getTabs) {
+    const tabObj = __nstParseMaybe(await __NST_SOURCE__.getTabs()) || {};
+    if (Array.isArray(tabObj.list)) return tabObj.list;
+  }
+  return [];
+}
+
+async function __nstFetchCards(tab, page) {
+  if (!__NST_SOURCE__.getCards) return [];
+
+  const ext = Object.assign({}, (tab && tab.ext && typeof tab.ext === 'object') ? tab.ext : {});
+  ext.page = Number(page) || 1;
+
+  const cardsObj = __nstParseMaybe(await __NST_SOURCE__.getCards(JSON.stringify(ext))) || {};
+  const list = Array.isArray(cardsObj.list) ? cardsObj.list : [];
+
+  return list.map(__nstNormalizeCard).filter(v => v.id && v.title);
+}
+
+async function getWebsiteInfo() {
+  const cfg = await __nstGetConfigObject();
+  const homepage = String(cfg.site || '');
+  return {
+    name: String(cfg.title || '玩偶姐姐'),
+    description: 'Converted for NowShowTime with local editable adapter',
+    icon: __nstIconFromSite(homepage),
+    homepage
+  };
+}
+
+async function getCategories() {
+  const cfg = await __nstGetConfigObject();
+  const tabs = await __nstGetTabsArray(cfg);
+  return tabs.map((tab, i) => ({ id: __nstTabId(tab, i), name: String((tab && tab.name) || ('分类' + (i + 1))) }));
+}
+
+async function getVideoList(page) {
+  const cfg = await __nstGetConfigObject();
+  const tabs = await __nstGetTabsArray(cfg);
+  return __nstFetchCards(tabs[0] || null, page || 1);
+}
+
+async function getVideosByCategory(categoryId, page) {
+  const cfg = await __nstGetConfigObject();
+  const tabs = await __nstGetTabsArray(cfg);
+  const workingCfg = Object.assign({}, cfg, { tabs });
+  return __nstFetchCards(__nstPickTab(workingCfg, categoryId), page || 1);
+}
+
+async function getVideoDetail(videoId, videoUrl) {
+  const srcUrl = String(videoUrl || videoId || '');
+  const req = { id: String(videoId || ''), url: srcUrl };
+
+  let tracksObj = null;
+  if (__NST_SOURCE__.getTracks) tracksObj = __nstParseMaybe(await __NST_SOURCE__.getTracks(JSON.stringify(req)));
+
+  const resolutions = [];
+  const groups = (tracksObj && Array.isArray(tracksObj.list)) ? tracksObj.list : [];
+
+  for (const group of groups) {
+    const tracks = Array.isArray(group && group.tracks) ? group.tracks : [];
+    for (const t of tracks) {
+      const nm = String((t && t.name) || '自动');
+      const extObj = (t && t.ext && typeof t.ext === 'object') ? t.ext : null;
+      let tu = '';
+      if (extObj) {
+        const direct = String(extObj.playurl || extObj.id || extObj.url || extObj.playUrl || extObj.src || t.url || '');
+        const keys = Object.keys(extObj);
+        if (keys.length > 1 || (keys.length === 1 && !('url' in extObj || 'playUrl' in extObj || 'src' in extObj || 'id' in extObj || 'playurl' in extObj))) {
+          try { tu = JSON.stringify(extObj); } catch (_) { tu = direct; }
+        }
+        if (!tu) tu = direct;
+      } else {
+        tu = String(t.url || '');
+      }
+      if (!tu) continue;
+      resolutions.push({ id: nm, name: nm, url: tu, size: '' });
+    }
+  }
+
+  if (!resolutions.length && srcUrl) {
+    resolutions.push({ id: 'auto', name: '自动', url: srcUrl, size: '' });
+  }
+
+  return {
+    id: String(videoId || srcUrl || ''),
+    title: String(videoId || 'Video'),
+    cover: '',
+    description: '',
+    resolutions
+  };
+}
+
+async function getPlayUrl(episodeUrl) {
+  const src = String(episodeUrl || '');
+  if (!src) return src;
+
+  let playCandidate = src;
+  let reqObj = null;
+
+  const srcObj = __nstParseMaybe(src);
+  if (srcObj && typeof srcObj === 'object' && !Array.isArray(srcObj)) {
+    reqObj = Object.assign({}, srcObj);
+    playCandidate = String(reqObj.playurl || reqObj.id || reqObj.url || reqObj.playUrl || reqObj.src || src);
+  }
+
+  if (/^https?:\/\//i.test(playCandidate) && !/\.m3u8(\?|$)/i.test(playCandidate) && !/\.mp4(\?|$)/i.test(playCandidate) && __NST_SOURCE__.getTracks) {
+    try {
+      const tracksObj = __nstParseMaybe(await __NST_SOURCE__.getTracks(JSON.stringify({ url: playCandidate, id: playCandidate }))) || {};
+      const groups = Array.isArray(tracksObj.list) ? tracksObj.list : [];
+      for (const group of groups) {
+        const tracks = Array.isArray(group && group.tracks) ? group.tracks : [];
+        for (const t of tracks) {
+          const extObj = (t && t.ext && typeof t.ext === 'object') ? t.ext : null;
+          const tu = String((extObj && (extObj.playurl || extObj.id || extObj.url || extObj.playUrl || extObj.src)) || t.url || '');
+          if (tu) {
+            playCandidate = tu;
+            break;
+          }
+        }
+        if (playCandidate !== src) break;
+      }
+    } catch (_) {}
+  }
+
+  if (!__NST_SOURCE__.getPlayinfo) return playCandidate;
+
+  const req = reqObj && typeof reqObj === 'object'
+    ? Object.assign({}, reqObj, {
+        playurl: reqObj.playurl || reqObj.playUrl || reqObj.id || reqObj.url || reqObj.src || playCandidate,
+        id: reqObj.id || reqObj.url || reqObj.playUrl || reqObj.playurl || reqObj.src || playCandidate,
+        url: reqObj.url || reqObj.id || reqObj.playurl || reqObj.playUrl || playCandidate,
+        playUrl: reqObj.playUrl || reqObj.playurl || reqObj.id || reqObj.url || playCandidate,
+        src: reqObj.src || reqObj.id || reqObj.playurl || playCandidate
+      })
+    : { playurl: playCandidate, id: playCandidate, url: playCandidate, playUrl: playCandidate, src: playCandidate };
+
+  const ret = __nstParseMaybe(await __NST_SOURCE__.getPlayinfo(JSON.stringify(req))) || {};
+  const urls = Array.isArray(ret.urls) ? ret.urls : [];
+  if (urls.length && urls[0]) return String(urls[0]);
+  const single = ret.playurl || ret.id || ret.url || ret.playUrl || ret.src || '';
+  if (single) return String(single);
+  return String(req.playurl || req.id || req.playUrl || req.url || playCandidate);
+}
+
+async function search(keyword, page) {
+  if (!__NST_SOURCE__.search) return [];
+
+  const ret = __nstParseMaybe(await __NST_SOURCE__.search(JSON.stringify({ text: String(keyword || ''), page: Number(page) || 1 }))) || {};
+  const list = Array.isArray(ret.list) ? ret.list : [];
+  return list.map(__nstNormalizeCard).filter(v => v.id && v.title);
+}

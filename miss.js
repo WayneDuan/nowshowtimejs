@@ -41,9 +41,6 @@ const baseHeaders = {
   'User-Agent': UA,
   'Referer': SITE + '/',
   'Origin': SITE,
-  'Sec-Fetch-Site': 'same-origin',
-  'Sec-Fetch-Mode': 'navigate',
-  'Sec-Fetch-Dest': 'document',
 };
 const cheerio = createCheerio()
 /*
@@ -315,22 +312,6 @@ async function getConfig() {
     return jsonify(config)
 }
 
-async function getSortOptions() {
-  return {
-    key: 'sort',
-    name: '排序',
-    init: 'released_at',
-    value: [
-      { n: '发行日期', v: 'released_at' },
-      { n: '最近更新', v: 'published_at' },
-      { n: '收藏数', v: 'saved' },
-      { n: '今日浏览数', v: 'today_views' },
-      { n: '本周浏览数', v: 'weekly_views' },
-      { n: '本月浏览数', v: 'monthly_views' },
-      { n: '总浏览数', v: 'views' },
-    ],
-  };
-}
 
 async function getCards(ext) {
     ext = argsify(ext)
@@ -542,8 +523,7 @@ async function search(ext) {
     getCards: (typeof getCards === 'function') ? getCards : null,
     getTracks: (typeof getTracks === 'function') ? getTracks : null,
     getPlayinfo: (typeof getPlayinfo === 'function') ? getPlayinfo : null,
-    search: (typeof search === 'function') ? search : null,
-    getSortOptions: (typeof getSortOptions === 'function') ? getSortOptions : null,
+    search: (typeof search === 'function') ? search : null
   };
 })();
 

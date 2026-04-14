@@ -542,7 +542,8 @@ async function search(ext) {
     getCards: (typeof getCards === 'function') ? getCards : null,
     getTracks: (typeof getTracks === 'function') ? getTracks : null,
     getPlayinfo: (typeof getPlayinfo === 'function') ? getPlayinfo : null,
-    search: (typeof search === 'function') ? search : null
+    search: (typeof search === 'function') ? search : null,
+    getSortOptions: (typeof getSortOptions === 'function') ? getSortOptions : null,
   };
 })();
 

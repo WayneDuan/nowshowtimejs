@@ -5,192 +5,171 @@
   "updateTime": "2026-04-10T08:27:49.446Z",
   "websites": [
     {
-      "id": "hamster",
-      "name": "xHamster",
-      "icon": "https://zh.xhamster.com/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/hamster.js",
-      "description": "获取的影视站点: xHamster"
-    },
-    {
       "id": "hanime1",
       "name": "Hanime1",
       "icon": "https://hanime1.me/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/hanime1.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/hanime1.js",
       "description": "获取的影视站点: Hanime1"
     },
     {
       "id": "harunasan",
       "name": "秋名山見(live)",
       "icon": "http://api.maiyoux.com:81/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/harunasan.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/harunasan.js",
       "description": "获取的影视站点: 秋名山見(live)"
-    },
-    {
-      "id": "hdys",
-      "name": "花都影視",
-      "icon": "https://hd.huaduys.org/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/hdys.js",
-      "description": "获取的影视站点: 花都影視"
     },
     {
       "id": "hkdoll",
       "name": "玩偶姐姐",
       "icon": "https://hongkongdollvideo.com/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/hkdoll.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/hkdoll.js",
       "description": "获取的影视站点: 玩偶姐姐"
     },
     {
       "id": "hohoj",
       "name": "hohoj",
       "icon": "https://hohoj.tv/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/hohoj.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/hohoj.js",
       "description": "获取的影视站点: hohoj"
     },
     {
       "id": "jable",
       "name": "jable",
       "icon": "https://jable.tv/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/jable.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/jable.js",
       "description": "获取的影视站点: jable"
     },
     {
       "id": "javmove",
       "name": "JavMove",
       "icon": "https://javmove.com/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/javmove.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/javmove.js",
       "description": "获取的影视站点: JavMove"
     },
     {
       "id": "javxx",
       "name": "javxx",
       "icon": "https://javxx.com/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/javxx.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/javxx.js",
       "description": "获取的影视站点: javxx"
-    },
-    {
-      "id": "kanav",
-      "name": "KanAV",
-      "icon": "https://kanav.info/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/kanav.js",
-      "description": "获取的影视站点: KanAV"
     },
     {
       "id": "kbjfan",
       "name": "kbjfan",
       "icon": "https://www.kbjfan.com/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/kbjfan.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/kbjfan.js",
       "description": "获取的影视站点: kbjfan"
     },
     {
       "id": "kpm",
       "name": "KoreaPornMovie",
       "icon": "https://koreanpornmovie.com/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/kpm.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/kpm.js",
       "description": "获取的影视站点: KoreaPornMovie"
     },
     {
       "id": "madou",
       "name": "麻豆社",
       "icon": "https://madou.club/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/madou.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/madou.js",
       "description": "获取的影视站点: 麻豆社"
     },
     {
       "id": "miss",
       "name": "MISSAV",
       "icon": "https://missav.ai/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/miss.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/miss.js",
       "description": "获取的影视站点: MISSAV"
     },
     {
       "id": "pornhub",
       "name": "Pornhub",
       "icon": "https://cn.pornhub.com/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/pornhub.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/pornhub.js",
       "description": "获取的影视站点: Pornhub"
     },
     {
       "id": "ppron",
       "name": "pppHub",
       "icon": "https://ppp.porn/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/ppron.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/ppron.js",
       "description": "获取的影视站点: pppHub"
     },
     {
       "id": "rou",
       "name": "肉视频",
       "icon": "https://rou.video/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/rou.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/rou.js",
       "description": "获取的影视站点: 肉视频"
     },
     {
       "id": "shoetime-exporntoons",
       "name": "EXPORNTOONS",
       "icon": "https://exporntoons.net/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/shoetime-exporntoons.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/shoetime-exporntoons.js",
       "description": "获取的影视站点: EXPORNTOONS"
     },
     {
       "id": "showtime-91jav",
-      "name": "91jav (無海報)",
+      "name": "91jav",
       "icon": "https://jdkir.triutpw.cc/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/showtime-91jav.js",
-      "description": "获取的影视站点: 91jav (無海報)"
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/showtime-91jav.js",
+      "description": "获取的影视站点: 91jav"
     },
     {
       "id": "showtime-avdb",
       "name": "AVDB",
       "icon": "https://avdbapi.com/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/showtime-avdb.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/showtime-avdb.js",
       "description": "获取的影视站点: AVDB"
     },
     {
       "id": "showtime-avtoday",
       "name": "avtoday",
       "icon": "https://avtoday.io/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/showtime-avtoday.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/showtime-avtoday.js",
       "description": "获取的影视站点: avtoday"
     },
     {
       "id": "showtime-beeg",
       "name": "beeg",
       "icon": "https://beeg.com/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/showtime-beeg.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/showtime-beeg.js",
       "description": "获取的影视站点: beeg"
     },
     {
       "id": "spankbang",
       "name": "SpankBang",
       "icon": "https://jp.spankbang.com/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/spankbang.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/spankbang.js",
       "description": "获取的影视站点: SpankBang"
     },
     {
       "id": "supjav",
       "name": "SupJav",
       "icon": "https://supjav.com/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/supjav.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/supjav.js",
       "description": "获取的影视站点: SupJav"
     },
     {
       "id": "taiav",
       "name": "Taiav",
       "icon": "https://taiav.com/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/taiav.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/taiav.js",
       "description": "获取的影视站点: Taiav"
     },
     {
       "id": "twivideo",
       "name": "twivideo",
       "icon": "https://twivideo.net/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/twivideo.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/twivideo.js",
       "description": "获取的影视站点: twivideo"
     },
     {
       "id": "uaa",
       "name": "有爱爱",
       "icon": "https://www.uaa.com/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/uaa.js",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/v2/uaa.js",
       "description": "获取的影视站点: 有爱爱"
     }
   ]

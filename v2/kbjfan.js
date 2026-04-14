@@ -1,6 +1,6 @@
 /*
  * Local editable adapter
- * Site: xHamster
+ * Site: kbjfan
  *
  * This file is intentionally local-first (no remote SOURCE_URL / no eval).
  */
@@ -30,35 +30,28 @@ const __NST_SOURCE__ = (() => {
 const cheerio = createCheerio()
 
 const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1';
-const SITE = 'https://zh.xhamster.com';
+const SITE = 'https://www.kbjfan.com';
 const baseHeaders = {
   'User-Agent': UA,
   'Referer': SITE + '/',
   'Origin': SITE,
 };
 let appConfig = {
-    ver: 1,
-    title: 'xhamster',
-    site: 'https://zh.xhamster.com',
+    ver: 20250317,
+    title: 'kbjfan',
+    site: 'https://www.kbjfan.com',
     tabs: [
         {
-            name: 'newest',
+            name: 'Korean BJ Dance',
             ext: {
-                href: '/newest',
+                typeurl: 'koreanbjdance',
             },
             ui: 1,
         },
         {
-            name: 'weekly best',
+            name: 'Korean BJ Nude',
             ext: {
-                href: '/best/weekly',
-            },
-            ui: 1,
-        },
-        {
-            name: '4k',
-            ext: {
-                href: '/4k',
+                typeurl: 'koreanbjnude',
             },
             ui: 1,
         },
@@ -72,11 +65,11 @@ async function getConfig() {
 async function getCards(ext) {
     ext = argsify(ext)
     let cards = []
-    let { page = 1, href } = ext
+    let { page = 1, typeurl } = ext
+    let url = `${appConfig.site}/${typeurl}`
 
-    let url = appConfig.site + href
     if (page > 1) {
-        url = url + `/${page}`
+        url += `/page/${page}`
     }
 
     const { data } = await $fetch.get(url, {
@@ -87,19 +80,16 @@ async function getCards(ext) {
 
     const $ = cheerio.load(data)
 
-    $('.thumb-list__item').each((_, element) => {
-        const href = $(element).find('a.video-thumb__image-container').attr('href')
-        const title = $(element).find('.thumb-image-container__image').attr('alt')
-        const cover = $(element).find('.thumb-image-container__image').attr('src')
-        const subTitle = $(element).find('.video-thumb-views').text().trim() || ''
-        const duration = $(element).find('.thumb-image-container__duration').text().trim() || ''
+    $('.posts-item').each((_, element) => {
+        const href = $(element).find('.item-heading a').attr('href')
+        const title = $(element).find('.item-heading a').text()
+        const cover = $(element).find('.item-thumbnail img').attr('data-src')
+        const pubdate = $(element).find('.meta-author span').text()
         cards.push({
             vod_id: href,
             vod_name: title,
             vod_pic: cover,
-            vod_remarks: subTitle,
-            vod_duration: duration,
-            vod_pubdate: '',
+            vod_pubdate: pubdate,
             ext: {
                 url: href,
             },
@@ -123,20 +113,32 @@ async function getTracks(ext) {
     })
 
     const $ = cheerio.load(data)
-    const script = $('#initials-script').text()
-    let window = {}
-    eval(script)
-    const videos = window.initials.xplayerSettings.sources.standard.h264
-    videos.forEach((e) => {
+    let playlist = $('.dplayer-featured a')
+
+    if (playlist.length) {
+        playlist.each((_, element) => {
+            let name = $(element).text().trim()
+            let url = $(element).attr('video-url')
+
+            tracks.push({
+                name: name,
+                pan: '',
+                ext: {
+                    url: url,
+                },
+            })
+        })
+    } else {
+        let playUrl = $('#posts-pay .new-dplayer').attr('video-url')
+
         tracks.push({
-            name: e.label,
+            name: '播放',
             pan: '',
             ext: {
-                url: e.url,
-                referer: url,
+                url: playUrl,
             },
         })
-    })
+    }
 
     return jsonify({
         list: [
@@ -151,12 +153,8 @@ async function getTracks(ext) {
 async function getPlayinfo(ext) {
     ext = argsify(ext)
     const url = ext.url
-    const headers = {
-        'User-Agent': UA,
-        Referer: ext.referer + '/',
-    }
 
-    return jsonify({ urls: [url], headers: [headers] })
+    return jsonify({ urls: [url] })
 }
 
 async function search(ext) {
@@ -165,7 +163,11 @@ async function search(ext) {
 
     let text = encodeURIComponent(ext.text)
     let page = ext.page || 1
-    let url = `${appConfig.site}/search/${text}?page=${page}`
+    let url = `${appConfig.site}/?s=${text}`
+
+    if (page > 1) {
+        url = `${appConfig.site}/page/${page}/?s=${text}`
+    }
 
     const { data } = await $fetch.get(url, {
         headers: {
@@ -175,19 +177,16 @@ async function search(ext) {
 
     const $ = cheerio.load(data)
 
-    $('.thumb-list__item').each((_, element) => {
-        const href = $(element).find('a.video-thumb__image-container').attr('href')
-        const title = $(element).find('.thumb-image-container__image').attr('alt')
-        const cover = $(element).find('.thumb-image-container__image').attr('src')
-        const subTitle = $(element).find('.video-thumb-views').text().trim() || ''
-        const duration = $(element).find('.thumb-image-container__duration').text().trim() || ''
+    $('.posts-item').each((_, element) => {
+        const href = $(element).find('.item-heading a').attr('href')
+        const title = $(element).find('.item-heading a').text()
+        const cover = $(element).find('.item-thumbnail img').attr('data-src')
+        const pubdate = $(element).find('.meta-author span').text()
         cards.push({
             vod_id: href,
             vod_name: title,
             vod_pic: cover,
-            vod_remarks: subTitle,
-            vod_duration: duration,
-            vod_pubdate: '',
+            vod_pubdate: pubdate,
             ext: {
                 url: href,
             },
@@ -254,35 +253,10 @@ function __nstTabId(tab, index) {
   return String(index);
 }
 
-function __nstBuildCategories(tabs) {
-  return (Array.isArray(tabs) ? tabs : []).map((tab, i) => {
-    const ext = Object.assign({}, (tab && tab.ext && typeof tab.ext === 'object') ? tab.ext : {});
-    ext._tabId = __nstTabId(tab, i);
-    ext._tabIndex = i;
-    return {
-      id: String(i + 1),
-      name: String((tab && tab.name) || ('分类' + (i + 1))),
-      ext
-    };
-  });
-}
-
 function __nstPickTab(configObj, categoryId) {
   const tabs = Array.isArray(configObj.tabs) ? configObj.tabs : [];
   const cid = String(categoryId || '');
   return tabs.find((t, i) => __nstTabId(t, i) === cid) || tabs[0] || null;
-}
-
-function __nstPickTabFromCategories(tabs, categoryId) {
-  const categories = __nstBuildCategories(tabs);
-  const cid = String(categoryId || '');
-  const category = categories.find((item) => item.id === cid || String(item.ext && item.ext._tabId || '') === cid) || categories[0] || null;
-  if (!category) return null;
-
-  const index = Number(category.ext && category.ext._tabIndex);
-  if (!Number.isNaN(index) && tabs[index]) return tabs[index];
-
-  return __nstPickTab({ tabs }, cid);
 }
 
 async function __nstGetConfigObject() {
@@ -315,7 +289,7 @@ async function getWebsiteInfo() {
   const cfg = await __nstGetConfigObject();
   const homepage = String(cfg.site || '');
   return {
-    name: String(cfg.title || 'xHamster'),
+    name: String(cfg.title || 'kbjfan'),
     description: 'Converted for NowShowTime with local editable adapter',
     icon: __nstIconFromSite(homepage),
     homepage
@@ -325,7 +299,7 @@ async function getWebsiteInfo() {
 async function getCategories() {
   const cfg = await __nstGetConfigObject();
   const tabs = await __nstGetTabsArray(cfg);
-  return __nstBuildCategories(tabs);
+  return tabs.map((tab, i) => ({ id: __nstTabId(tab, i), name: String((tab && tab.name) || ('分类' + (i + 1))) }));
 }
 
 async function getVideoList(page) {
@@ -337,7 +311,8 @@ async function getVideoList(page) {
 async function getVideosByCategory(categoryId, page) {
   const cfg = await __nstGetConfigObject();
   const tabs = await __nstGetTabsArray(cfg);
-  return __nstFetchCards(__nstPickTabFromCategories(tabs, categoryId), page || 1);
+  const workingCfg = Object.assign({}, cfg, { tabs });
+  return __nstFetchCards(__nstPickTab(workingCfg, categoryId), page || 1);
 }
 
 async function getVideoDetail(videoId, videoUrl) {

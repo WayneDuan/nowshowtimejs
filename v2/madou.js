@@ -33,8 +33,6 @@ const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/6
 const SITE = 'https://madou.club';
 const baseHeaders = {
   'User-Agent': UA,
-  'Referer': SITE + '/',
-  'Origin': SITE,
 };
 let appConfig = {
     ver: 1,

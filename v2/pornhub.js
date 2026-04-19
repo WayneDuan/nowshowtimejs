@@ -79,86 +79,130 @@ async function getConfig() {
 }
 
 async function getCards(ext) {
-    ext = argsify(ext)
-    let cards = []
-    let { page = 1, id } = ext
-    let url = '${ appConfig.site }'
-    if (id === 'sy') {
-        url = `${appConfig.site}/video?`
-        if (page > 1) {
-            url = url + `page=${page}`
-        }
-    } else {
-        url = `${appConfig.site}/video?o=${id}`
-        if (page > 1) {
-            url = url + `&page=${page}`
-        }
-    }
+  ext = argsify(ext)
+  const cards = []
+  const { page = 1, id } = ext
 
-    const { data } = await $fetch.get(url, {
-        headers: {
-            'User-Agent': UA,
-        },
+  let url = `${appConfig.site}/video?`
+  if (id && id !== 'sy') url = `${appConfig.site}/video?o=${id}`
+  if (Number(page) > 1) url += (url.includes('?') && !url.endsWith('?') ? '&' : '') + `page=${page}`
+
+  const { data } = await $fetch.get(url, { headers: { 'User-Agent': UA } })
+  const $ = cheerio.load(data)
+
+  const toAbs = (u) => {
+    const s = String(u || '').trim()
+    if (!s) return ''
+    if (/^https?:\/\//i.test(s)) return s
+    return appConfig.site + s
+  }
+
+  $('li[data-video-vkey], li[class*="withKebabMenu"], div.videoWrapper[data-id]').each((_, el) => {
+    const root = $(el)
+
+    const href = root.find('a.imageLink[href*="/view_video.php?viewkey="]').attr('href')
+      || root.find('.title a[href*="/view_video.php?viewkey="]').attr('href')
+      || root.find('a[href*="/view_video.php?viewkey="]').first().attr('href')
+      || ''
+
+    const title = root.find('.title a').attr('title')
+      || root.find('.title a').text().trim()
+      || root.find('img.videoThumb').attr('alt')
+      || ''
+
+    const cover = root.find('img.videoThumb').attr('src')
+      || root.find('img.videoThumb').attr('data-path')
+      || root.find('a.imageLink').attr('data-poster')
+      || ''
+
+    const views = root.find('.views').first().text().trim()
+    const duration = root.find('.duration .time').first().text().trim()
+      || root.find('.duration').first().text().trim()
+
+    if (!href || !title) return
+    cards.push({
+      vod_id: href,
+      vod_name: title,
+      vod_pic: toAbs(cover),
+      vod_remarks: views,
+      vod_duration: duration,
+      ext: { url: toAbs(href) },
     })
+  })
 
-    const $ = cheerio.load(data)
+  return jsonify({ list: cards })
+}
 
-    $('li.videoBox').each((_, element) => {
-        const href = $(element).find('.phimage a.img').attr('href')
-        const title = $(element).find('.title a').attr('title')
-        const cover = $(element).find('.phimage a.img img').attr('src') || $(element).find('.phimage a.img img').attr('data-mediumthumb') || ''
-        const subTitle = $(element).find('.views').text().trim() || ''
-        const duration = $(element).find('.duration').text().trim() || ''
-        cards.push({
-            vod_id: href,
-            vod_name: title,
-            vod_pic: cover,
-            vod_remarks: subTitle,
-            vod_duration: duration,
-            ext: {
-                url: appConfig.site + href,
-            },
-        })
+async function search(ext) {
+  ext = argsify(ext)
+  const text = encodeURIComponent(ext.text || '')
+  const page = Number(ext.page || 1)
+  const url = `${appConfig.site}/video/search?search=${text}&page=${page}`
+
+  const { data } = await $fetch.get(url, { headers: { 'User-Agent': UA } })
+  const $ = cheerio.load(data)
+  const cards = []
+  const toAbs = (u) => /^https?:\/\//i.test(String(u || '')) ? String(u) : (appConfig.site + String(u || ''))
+
+  $('li[data-video-vkey], li[class*="withKebabMenu"], div.videoWrapper[data-id]').each((_, el) => {
+    const root = $(el)
+    const href = root.find('a.imageLink[href*="/view_video.php?viewkey="]').attr('href')
+      || root.find('.title a[href*="/view_video.php?viewkey="]').attr('href')
+      || ''
+    const title = root.find('.title a').attr('title')
+      || root.find('.title a').text().trim()
+      || root.find('img.videoThumb').attr('alt')
+      || ''
+    const cover = root.find('img.videoThumb').attr('src')
+      || root.find('img.videoThumb').attr('data-path')
+      || root.find('a.imageLink').attr('data-poster')
+      || ''
+    const views = root.find('.views').first().text().trim()
+    const duration = root.find('.duration .time').first().text().trim()
+      || root.find('.duration').first().text().trim()
+
+    if (!href || !title) return
+    cards.push({
+      vod_id: href,
+      vod_name: title,
+      vod_pic: toAbs(cover),
+      vod_remarks: views,
+      vod_duration: duration,
+      ext: { url: toAbs(href) },
     })
+  })
 
-    return jsonify({
-        list: cards,
-    })
+  return jsonify({ list: cards })
 }
 
 async function getTracks(ext) {
-    ext = argsify(ext)
-    let tracks = []
-    let url = ext.url
+  ext = argsify(ext)
+  const url = String(ext.url || '')
+  const tracks = []
+  if (!url) return jsonify({ list: [{ title: '默认分组', tracks }] })
 
-    const { data } = await $fetch.get(url, {
-        headers: {
-            'User-Agent': UA,
-        },
-    })
+  const { data } = await $fetch.get(url, { headers: { 'User-Agent': UA } })
 
-    const jsonStr = data.match(/var flashvars_.* = \{(.*?)\};/)[1]
-    const json = JSON.parse('{' + jsonStr + '}')
-    const videos = json.mediaDefinitions.filter((e) => e.format === 'hls')
-    videos.forEach((e) => {
+  // 更稳的 flashvars 提取（兼容换行）
+  const m = data.match(/var\s+flashvars_\d+\s*=\s*(\{[\s\S]*?\});/)
+  if (m && m[1]) {
+    try {
+      const json = JSON.parse(m[1])
+      const defs = Array.isArray(json.mediaDefinitions) ? json.mediaDefinitions : []
+      defs.filter(e => String(e.format || '').toLowerCase() === 'hls' && e.videoUrl).forEach(e => {
         tracks.push({
-            name: e.quality,
-            pan: '',
-            ext: {
-                url: e.videoUrl,
-            },
+          name: String(e.quality || 'auto'),
+          pan: '',
+          ext: { url: String(e.videoUrl) },
         })
-    })
+      })
+    } catch (_) {}
+  }
 
-    return jsonify({
-        list: [
-            {
-                title: 'é»è®¤åç»',
-                tracks,
-            },
-        ],
-    })
+  return jsonify({ list: [{ title: '默认分组', tracks }] })
 }
+
+
 
 async function getPlayinfo(ext) {
     ext = argsify(ext)
@@ -201,45 +245,6 @@ async function getPlayinfo(ext) {
     }
 
     return jsonify({ urls: [url], headers: [headers] })
-}
-
-async function search(ext) {
-    ext = argsify(ext)
-    let cards = []
-
-    let text = encodeURIComponent(ext.text)
-    let page = ext.page || 1
-    let url = `${appConfig.site}/video/search?search=${text}&page=${page}`
-
-    const { data } = await $fetch.get(url, {
-        headers: {
-            'User-Agent': UA,
-        },
-    })
-
-    const $ = cheerio.load(data)
-
-    $('li.videoBox').each((_, element) => {
-        const href = $(element).find('.phimage a.img').attr('href')
-        const title = $(element).find('.title a').attr('title')
-        const cover = $(element).find('.phimage a.img img').attr('src') || $(element).find('.phimage a.img img').attr('data-mediumthumb') || ''
-        const subTitle = $(element).find('.views').text().trim() || ''
-        const duration = $(element).find('.duration').text().trim() || ''
-        cards.push({
-            vod_id: href,
-            vod_name: title,
-            vod_pic: cover,
-            vod_remarks: subTitle,
-            vod_duration: duration,
-            ext: {
-                url: appConfig.site + href,
-            },
-        })
-    })
-
-    return jsonify({
-        list: cards,
-    })
 }
 
   return {

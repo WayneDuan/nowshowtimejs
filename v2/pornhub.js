@@ -97,7 +97,7 @@ async function getCards(ext) {
     return appConfig.site + s
   }
 
-  $('li[data-video-vkey], li[class*=" withKebabMenu"], div.videoWrapper[data-id]').each((_, el) => {
+  $('li[class*=" withKebabMenu"]').each((_, el) => {
     const root = $(el)
 
     const href = root.find('a.imageLink[href*="/view_video.php?viewkey="]').attr('href')
@@ -144,7 +144,7 @@ async function search(ext) {
   const cards = []
   const toAbs = (u) => /^https?:\/\//i.test(String(u || '')) ? String(u) : (appConfig.site + String(u || ''))
 
-  $('li[data-video-vkey], li[class*="withKebabMenu"], div.videoWrapper[data-id]').each((_, el) => {
+  $('li[class*=" withKebabMenu"]').each((_, el) => {
     const root = $(el)
     const href = root.find('a.imageLink[href*="/view_video.php?viewkey="]').attr('href')
       || root.find('.title a[href*="/view_video.php?viewkey="]').attr('href')

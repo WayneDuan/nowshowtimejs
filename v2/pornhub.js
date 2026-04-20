@@ -102,8 +102,7 @@ async function getCards(ext) {
 
   console.log('len=', (data || '').length)
   console.log('hasVideo=', /view_video\.php\?viewkey=/.test(data || ''))
-
-  items.each((_, el).each((_, el) => {
+  items.each((_, el) => {
     const root = $(el)
 
     const href = root.find('a.linkVideoThumb').attr('href')

@@ -97,7 +97,7 @@ async function getCards(ext) {
     return appConfig.site + s
   }
 
-  $('li[data-video-vkey], li[class*="withKebabMenu"], div.videoWrapper[data-id]').each((_, el) => {
+  $('li[data-video-vkey], li[class*=" withKebabMenu"], div.videoWrapper[data-id]').each((_, el) => {
     const root = $(el)
 
     const href = root.find('a.imageLink[href*="/view_video.php?viewkey="]').attr('href')

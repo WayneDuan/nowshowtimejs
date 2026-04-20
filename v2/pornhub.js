@@ -96,7 +96,7 @@ async function getCards(ext) {
     if (/^https?:\/\//i.test(s)) return s
     return appConfig.site + s
   }
-  console.log($('li[class=" withKebabMenu"]'))
+  console.log($('li[class=" withKebabMenu"]').first().html())
   $('li[class=" withKebabMenu"]').each((_, el) => {
     const root = $(el)
 

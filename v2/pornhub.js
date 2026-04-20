@@ -97,7 +97,7 @@ async function getCards(ext) {
     return appConfig.site + s
   }
 
-  $('div.wrap.flexibleHeight').each((_, el) => {
+  $('li[class=" withKebabMenu"]').each((_, el) => {
     const root = $(el)
 
     const href = root.find('a.linkVideoThumb').attr('href')
@@ -141,7 +141,7 @@ async function search(ext) {
   const cards = []
   const toAbs = (u) => /^https?:\/\//i.test(String(u || '')) ? String(u) : (appConfig.site + String(u || ''))
 
-  $('div.wrap.flexibleHeight').each((_, el) => {
+   $('li[class=" withKebabMenu"]').each((_, el) => {
     const root = $(el)
     const href = root.find('a.linkVideoThumb').attr('href')
       || root.find('span.title a').attr('href')

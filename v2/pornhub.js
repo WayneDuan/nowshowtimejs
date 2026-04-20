@@ -96,8 +96,14 @@ async function getCards(ext) {
     if (/^https?:\/\//i.test(s)) return s
     return appConfig.site + s
   }
-  console.log($('li[class=" withKebabMenu"]').first().html())
-  $('li[class=" withKebabMenu"]').each((_, el) => {
+  const items = $('li.withKebabMenu, li[data-video-id], li[data-video-vkey]')
+  console.log('items=', items.length)
+  console.log('first=', items.first().html())
+
+  console.log('len=', (data || '').length)
+  console.log('hasVideo=', /view_video\.php\?viewkey=/.test(data || ''))
+
+  items.each((_, el).each((_, el) => {
     const root = $(el)
 
     const href = root.find('a.linkVideoThumb').attr('href')

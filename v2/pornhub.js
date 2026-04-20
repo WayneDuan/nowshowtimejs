@@ -104,22 +104,24 @@ async function getCards(ext) {
   console.log('hasVideo=', /view_video\.php\?viewkey=/.test(data || ''))
   items.each((_, el) => {
     const root = $(el)
-
-    const href = root.find('a.linkVideoThumb').attr('href')
-      || root.find('span.title a').attr('href')
+    const href = root.find('a.imageLink[href*="/view_video.php?viewkey="]').attr('href')
+      || root.find('.title a[href*="/view_video.php?viewkey="]').attr('href')
+      || root.find('a[href*="/view_video.php?viewkey="]').first().attr('href')
       || ''
 
-    const title = root.find('span.title a').attr('title')
-      || root.find('span.title a').text().trim()
-      || root.find('img').attr('alt')
+    const title = root.find('.title a').attr('title')
+      || root.find('.title a').text().trim()
+      || root.find('img.videoThumb').attr('alt')
       || ''
 
-    const cover = root.find('img').attr('src')
-      || root.find('img').attr('data-image')
+    const cover = root.find('img.videoThumb').attr('src')
+      || root.find('img.videoThumb').attr('data-path')
+      || root.find('a.imageLink').attr('data-poster')
       || ''
 
-    const views = root.find('span.views var').first().text().trim()
-    const duration = root.find('var.duration').first().text().trim()
+    const views = root.find('.views').first().text().trim()
+    const duration = root.find('.duration .time').first().text().trim()
+      || root.find('.duration').first().text().trim()
 
     if (!href || !title) return
     cards.push({

@@ -47,13 +47,6 @@
       "description": "获取的影视站点: 思源码"
     },
     {
-      "id": "aowu",
-      "name": "傲屋",
-      "icon": "https://aowu.cc/favicon.ico",
-      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/aowu.js",
-      "description": "获取的影视站点: 傲屋"
-    },
-    {
       "id": "apple",
       "name": "苹果影视",
       "icon": "https://apple.cc/favicon.ico",

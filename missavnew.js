@@ -42,14 +42,14 @@ async function getCategories() {
   if (tabsCache) return tabsCache;
 
   const tabs = [
-    { name: '中文字幕', ext: { url: currentSite + '/dm265/ja/chinese-subtitle' } },
-    { name: '无码流出', ext: { url: currentSite + '/dm817/ja/uncensored-leak' } },
-    { name: '最近更新', ext: { url: currentSite + '/dm634/ja/release' } },
-    { name: 'FC2', ext: { url: currentSite + '/dm541/ja/fc2' } },
-    { name: '麻豆传媒', ext: { url: currentSite + '/dm34/cn/madou' } },
-    { name: '无删减', ext: { url: currentSite + '/dm817/ja/uncensored-leak' } },
-    { name: '中直播', ext: { url: currentSite + '/ja/clive' } },
-    { name: '韩直播', ext: { url: currentSite + '/ja/klive' } }
+    { name: '中文字幕', ext: { url: SITE + '/dm265/ja/chinese-subtitle' } },
+    { name: '无码流出', ext: { url: SITE + '/dm817/ja/uncensored-leak' } },
+    { name: '最近更新', ext: { url: SITE + '/dm634/ja/release' } },
+    { name: 'FC2', ext: { url: SITE + '/dm541/ja/fc2' } },
+    { name: '麻豆传媒', ext: { url: SITE + '/dm34/cn/madou' } },
+    { name: '无删减', ext: { url: SITE + '/dm817/ja/uncensored-leak' } },
+    { name: '中直播', ext: { url: SITE + '/ja/clive' } },
+    { name: '韩直播', ext: { url: SITE + '/ja/klive' } }
   ];
 
   tabsCache = tabs.map((tab, index) => ({

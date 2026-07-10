@@ -1,26 +1,77 @@
 
 const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1';
-const SITE = 'https://missav.ai';
+const DEFAULT_SITE_CANDIDATES = [
+  'https://missav.ai',
+  'https://missav.ws',
+];
 const cheerio = createCheerio();
 
 let tabsCache = null;
 let sessionReady = false;
+let currentSite = DEFAULT_SITE_CANDIDATES[0];
+let challengePromptedAt = 0;
 
-const baseHeaders = {
-  'User-Agent': UA,
-  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-  'Accept-Language': 'ja-JP,ja;q=0.9,zh-CN;q=0.8,en-US;q=0.7,en;q=0.6',
-  'Referer': SITE + '/',
-  'Origin': SITE,
-  'Sec-Fetch-Site': 'same-origin',
-  'Sec-Fetch-Mode': 'navigate',
-  'Sec-Fetch-Dest': 'document',
-};
+function buildHeaders(site, extra) {
+  return Object.assign({
+    'User-Agent': UA,
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'ja-JP,ja;q=0.9,zh-CN;q=0.8,en-US;q=0.7,en;q=0.6',
+    'Referer': site + '/',
+    'Origin': site,
+    'Sec-Fetch-Site': 'same-origin',
+    'Sec-Fetch-Mode': 'navigate',
+    'Sec-Fetch-Dest': 'document',
+  }, extra || {});
+}
+
+function isChallengeHtml(html) {
+  const text = String(html || '').toLowerCase();
+  if (!text) return true;
+  return text.includes('just a moment')
+    || text.includes('cf-browser-verification')
+    || text.includes('cf-mitigated')
+    || text.includes('cloudflare')
+    || text.includes('challenge-platform')
+    || text.includes('enable javascript and cookies to continue');
+}
+
+function promptChallenge(url) {
+  const now = Date.now();
+  if (now - challengePromptedAt < 15000) return;
+  challengePromptedAt = now;
+  try { $utils.toastError('MissAV 触发 Cloudflare 验证，请在 Safari 完成后重试'); } catch (_) {}
+  try { $utils.openSafari(url || currentSite, UA); } catch (_) {}
+}
+
+function assertNotBlocked(html, url) {
+  if (isChallengeHtml(html)) {
+    promptChallenge(url || currentSite);
+    throw new Error('MissAV 当前请求被 Cloudflare 验证拦截，未返回真实页面');
+  }
+}
 
 async function ensureSession() {
   if (sessionReady) return;
-  await $fetch.get(SITE + '/', { headers: baseHeaders, userAgent: UA });
-  sessionReady = true;
+
+  let lastError = '';
+  for (const site of DEFAULT_SITE_CANDIDATES) {
+    try {
+      const { data } = await $fetch.get(site + '/', {
+        headers: buildHeaders(site),
+        userAgent: UA
+      });
+      assertNotBlocked(data, site + '/');
+      currentSite = site;
+      sessionReady = true;
+      tabsCache = null;
+      return;
+    } catch (error) {
+      lastError = String((error && error.message) || error || '');
+    }
+  }
+
+  promptChallenge(currentSite);
+  throw new Error(`MissAV 所有候选域名都被 Cloudflare 验证拦截或不可用: ${DEFAULT_SITE_CANDIDATES.join(', ')}${lastError ? ` (${lastError})` : ''}`);
 }
 
 function withQuery(url, key, value) {
@@ -33,8 +84,8 @@ async function getWebsiteInfo() {
   return {
     name: "MissAV",
     description: "MissAV - 免费高清在线视频",
-    icon: "https://missav.ai/favicon.ico",
-    homepage: SITE
+    icon: currentSite + "/favicon.ico",
+    homepage: currentSite
   };
 }
 
@@ -42,14 +93,14 @@ async function getCategories() {
   if (tabsCache) return tabsCache;
 
   const tabs = [
-    { name: '中文字幕', ext: { url: SITE + '/dm265/ja/chinese-subtitle' } },
-    { name: '无码流出', ext: { url: SITE + '/dm817/ja/uncensored-leak' } },
-    { name: '最近更新', ext: { url: SITE + '/dm634/ja/release' } },
-    { name: 'FC2', ext: { url: SITE + '/dm541/ja/fc2' } },
-    { name: '麻豆传媒', ext: { url: SITE + '/dm34/cn/madou' } },
-    { name: '无删减', ext: { url: SITE + '/dm817/ja/uncensored-leak' } },
-    { name: '中文直播', ext: { url: SITE + '/ja/clive' } },
-    { name: '中文直播', ext: { url: SITE + '/ja/klive' } },
+    { name: '中文字幕', ext: { url: currentSite + '/dm265/ja/chinese-subtitle' } },
+    { name: '无码流出', ext: { url: currentSite + '/dm817/ja/uncensored-leak' } },
+    { name: '最近更新', ext: { url: currentSite + '/dm634/ja/release' } },
+    { name: 'FC2', ext: { url: currentSite + '/dm541/ja/fc2' } },
+    { name: '麻豆传媒', ext: { url: currentSite + '/dm34/cn/madou' } },
+    { name: '无删减', ext: { url: currentSite + '/dm817/ja/uncensored-leak' } },
+    { name: '中文直播', ext: { url: currentSite + '/ja/clive' } },
+    { name: '中文直播', ext: { url: currentSite + '/ja/klive' } },
   ];
 
   tabsCache = tabs.map((tab, index) => ({
@@ -83,7 +134,7 @@ async function getSortOptions() {
 async function getVideosByCategory(categoryId, page, sort) {
   const categories = await getCategories();
   const category = categories.find((item) => item.id === String(categoryId));
-  const categoryUrl = category && category.ext ? category.ext.url : SITE + '/dm515/ja/new';
+  const categoryUrl = category && category.ext ? category.ext.url : currentSite + '/dm515/ja/new';
   return getVideoList(page, categoryUrl, sort);
 }
 
@@ -94,15 +145,16 @@ async function getVideoList(page, categoryUrl, sort) {
   const currentPage = page || 1;
   const sortValue = sort || 'released_at';
 
-  let baseUrl = categoryUrl || `${SITE}/dm515/ja/new`;
+  let baseUrl = categoryUrl || `${currentSite}/dm515/ja/new`;
   baseUrl = withQuery(baseUrl, 'sort', sortValue);
 
   const url = baseUrl.includes('?') ? `${baseUrl}&page=${currentPage}` : `${baseUrl}?page=${currentPage}`;
 
   const { data } = await $fetch.get(url, {
-    headers: baseHeaders,
+    headers: buildHeaders(currentSite),
     userAgent: UA
   });
+  assertNotBlocked(data, url);
 
   const $ = cheerio.load(data || '');
   const videos = $('.thumbnail');
@@ -137,9 +189,10 @@ async function getVideoDetail(videoId) {
   const m3u8Prefix = 'https://surrit.com/';
 
   const { data } = await $fetch.get(url, {
-    headers: baseHeaders,
+    headers: buildHeaders(currentSite),
     userAgent: UA
   });
+  assertNotBlocked(data, url);
 
   const html = data || '';
   const $ = cheerio.load(html);
@@ -161,9 +214,16 @@ async function getVideoDetail(videoId) {
   if (uuid) {
     const masterM3u8 = `${m3u8Prefix}${uuid}/playlist.m3u8`;
     const { data: masterData } = await $fetch.get(masterM3u8, {
-      headers: baseHeaders,
+      headers: {
+        'User-Agent': UA,
+        'Referer': url
+      },
       userAgent: UA
     });
+    if (isChallengeHtml(masterData)) {
+      promptChallenge(url);
+      throw new Error('MissAV 播放源域名返回了 Cloudflare 验证页，未拿到真实 m3u8');
+    }
 
     if (masterData && masterData.includes('#EXTM3U')) {
       const lines = masterData.split('\n');
@@ -222,7 +282,7 @@ async function searchAllCategories(keyword, page) {
     // 以分类的 ext.url 为基础，拼接搜索路径
     // MissAV 的搜索一般是 /cn/search/xxx?page=1，但如果分类有特殊路径，可以自定义
     // 这里假设每个分类都支持 /search/xxx
-    let baseUrl = cat.ext && cat.ext.url ? cat.ext.url : SITE + '/dm515/ja/new';
+    let baseUrl = cat.ext && cat.ext.url ? cat.ext.url : currentSite + '/dm515/ja/new';
     // 取分类路径的前缀部分，拼接 search
     let searchUrl = '';
     try {
@@ -234,13 +294,14 @@ async function searchAllCategories(keyword, page) {
       searchUrl = urlObj.origin + pathParts.join('/') + '/search/' + text + '?page=' + currentPage;
     } catch (e) {
       // fallback
-      searchUrl = SITE + '/search/' + text + '?page=' + currentPage;
+      searchUrl = currentSite + '/search/' + text + '?page=' + currentPage;
     }
 
     const { data } = await $fetch.get(searchUrl, {
-      headers: baseHeaders,
+      headers: buildHeaders(currentSite),
       userAgent: UA
     });
+    assertNotBlocked(data, searchUrl);
 
     const $ = cheerio.load(data || '');
     const videos = $('.thumbnail');

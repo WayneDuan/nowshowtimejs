@@ -82,6 +82,13 @@
       "description": "获取的影视站点: MISSAV"
     },
     {
+      "id": "miss-new",
+      "name": "MISSAV（—新）",
+      "icon": "https://missav.ai/favicon.ico",
+      "jsUrl": "https://raw.githubusercontent.com/WayneDuan/nowshowtimejs/refs/heads/main/missavnew.js",
+      "description": "获取的影视站点: MISSAV"
+    },
+    {
       "id": "pornhub",
       "name": "Pornhub",
       "icon": "https://cn.pornhub.com/favicon.ico",

@@ -1,6 +1,6 @@
 
 const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1';
-const SITE = 'https://missav.ws';
+const SITE = 'https://missav.ai';
 const cheerio = createCheerio();
 
 let tabsCache = null;
@@ -43,10 +43,13 @@ async function getCategories() {
 
   const tabs = [
     { name: '中文字幕', ext: { url: SITE + '/dm265/ja/chinese-subtitle' } },
-    { name: '无码流出', ext: { url: SITE + '/dm628/ja/uncensored-leak' } },
-    { name: '最近更新', ext: { url: SITE + '/dm515/ja/new' } },
-    { name: 'FC2', ext: { url: SITE + '/dm150/ja/fc2' } },
-    { name: '麻豆传媒', ext: { url: SITE + '/dm34/cn/madou' } }
+    { name: '无码流出', ext: { url: SITE + '/dm817/ja/uncensored-leak' } },
+    { name: '最近更新', ext: { url: SITE + '/dm634/ja/release' } },
+    { name: 'FC2', ext: { url: SITE + '/dm541/ja/fc2' } },
+    { name: '麻豆传媒', ext: { url: SITE + '/dm34/cn/madou' } },
+    { name: '无删减', ext: { url: SITE + '/dm817/ja/uncensored-leak' } },
+    { name: '中文直播', ext: { url: SITE + '/ja/clive' } },
+    { name: '中文直播', ext: { url: SITE + '/ja/klive' } },
   ];
 
   tabsCache = tabs.map((tab, index) => ({

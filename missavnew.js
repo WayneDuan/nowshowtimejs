@@ -48,8 +48,8 @@ async function getCategories() {
     { name: 'FC2', ext: { url: currentSite + '/dm541/ja/fc2' } },
     { name: '麻豆传媒', ext: { url: currentSite + '/dm34/cn/madou' } },
     { name: '无删减', ext: { url: currentSite + '/dm817/ja/uncensored-leak' } },
-    { name: '中文直播', ext: { url: currentSite + '/ja/clive' } },
-    { name: '中文直播', ext: { url: currentSite + '/ja/klive' } },
+    { name: '中直播', ext: { url: currentSite + '/ja/clive' } },
+    { name: '韩直播', ext: { url: currentSite + '/ja/klive' } }
   ];
 
   tabsCache = tabs.map((tab, index) => ({

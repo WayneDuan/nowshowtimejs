@@ -182,11 +182,220 @@ async function getVideoList(page, categoryUrl, sort) {
   return list;
 }
 
+function normalizePlaybackUrl(value, baseUrl) {
+  const text = String(value || '').trim();
+  if (!text) return '';
+  if (/^https?:\/\//i.test(text)) return text;
+  if (text.startsWith('//')) return 'https:' + text;
+  try {
+    return new URL(text, baseUrl || currentSite).toString();
+  } catch (_) {
+    return '';
+  }
+}
+
+function pushPlaybackCandidate(list, value, baseUrl) {
+  const normalized = normalizePlaybackUrl(String(value || '').replace(/\\\//g, '/'), baseUrl);
+  if (!normalized) return;
+  if (!/\.m3u8(?:$|[?#])/i.test(normalized)) return;
+  if (!list.includes(normalized)) {
+    list.push(normalized);
+  }
+}
+
+function extractPlaybackCandidates(html, pageUrl) {
+  const text = String(html || '');
+  const candidates = [];
+
+  const directPatterns = [
+    /https?:\/\/[^"'<>\\\s]+\.m3u8(?:\?[^"'<>\\\s]*)?/ig,
+    /https?:\\\/\\\/[^"'<>]+?\.m3u8(?:\\\?[^"'<>]*)?/ig
+  ];
+  directPatterns.forEach((pattern) => {
+    const matches = text.match(pattern) || [];
+    matches.forEach((item) => pushPlaybackCandidate(candidates, item, pageUrl));
+  });
+
+  const fieldPatterns = [
+    /"(?:hls|playlist|playUrl|videoUrl|src|file)"\s*:\s*"([^"]+?\.m3u8[^"]*)"/ig,
+    /'(?:hls|playlist|playUrl|videoUrl|src|file)'\s*:\s*'([^']+?\.m3u8[^']*)'/ig
+  ];
+  fieldPatterns.forEach((pattern) => {
+    let match;
+    while ((match = pattern.exec(text)) !== null) {
+      pushPlaybackCandidate(candidates, match[1], pageUrl);
+    }
+  });
+
+  const uuidPatterns = [
+    /nineyu\.com\\\/([a-zA-Z0-9-]+)\\\/seek\\\/_0\.jpg/ig,
+    /nineyu\.com\/([a-zA-Z0-9-]+)\/seek\/_0\.jpg/ig,
+    /surrit\.com\\\/([a-zA-Z0-9-]+)\\\/playlist\.m3u8/ig,
+    /surrit\.com\/([a-zA-Z0-9-]+)\/playlist\.m3u8/ig
+  ];
+  uuidPatterns.forEach((pattern) => {
+    let match;
+    while ((match = pattern.exec(text)) !== null) {
+      const uuid = String(match[1] || '').trim();
+      if (!uuid) continue;
+      pushPlaybackCandidate(candidates, `https://surrit.com/${uuid}/playlist.m3u8`, pageUrl);
+    }
+  });
+
+  return candidates;
+}
+
+function buildResolutionLabel(line, previousLine, index) {
+  const current = String(line || '').trim();
+  const prev = String(previousLine || '').trim();
+  const nameMatch = prev.match(/NAME="?([^",]+)"?/i);
+  if (nameMatch && nameMatch[1]) {
+    return String(nameMatch[1]).trim();
+  }
+
+  const resMatch = prev.match(/RESOLUTION=\d+x(\d+)/i);
+  if (resMatch && resMatch[1]) {
+    return resMatch[1] + 'p';
+  }
+
+  const pathMatch = current.match(/\/([^\/?#]+)\/video\.m3u8(?:$|[?#])/i);
+  if (pathMatch && pathMatch[1]) {
+    return String(pathMatch[1]).trim().toUpperCase();
+  }
+
+  return `线路${index + 1}`;
+}
+
+async function resolveSurritSeekResolutions(html, pageUrl) {
+  const text = String(html || '');
+  const patterns = [
+    /surrit\.com\\\/([a-zA-Z0-9-]+)\\\/seek\\\/_0\.jpg/i,
+    /surrit\.com\/([a-zA-Z0-9-]+)\/seek\/_0\.jpg/i,
+    /nineyu\.com\\\/([a-zA-Z0-9-]+)\\\/seek\\\/_0\.jpg/i,
+    /nineyu\.com\/([a-zA-Z0-9-]+)\/seek\/_0\.jpg/i
+  ];
+
+  let uuid = '';
+  for (const pattern of patterns) {
+    const match = text.match(pattern);
+    if (match && match[1]) {
+      uuid = String(match[1]).trim();
+      break;
+    }
+  }
+
+  if (!uuid) {
+    return [];
+  }
+
+  const m3u8Prefix = 'https://surrit.com/';
+  const masterM3u8 = `${m3u8Prefix}${uuid}/playlist.m3u8`;
+
+  try {
+    const { data } = await $fetch.get(masterM3u8, {
+      headers: {
+        'User-Agent': UA,
+        'Referer': pageUrl
+      },
+      userAgent: UA
+    });
+
+    if (isChallengeHtml(data)) {
+      promptChallenge(pageUrl);
+      throw new Error('MissAV 播放源域名返回了 Cloudflare 验证页，未拿到真实 m3u8');
+    }
+
+    const lines = String(data || '').split('\n');
+    const matches = lines.filter((line) => String(line || '').includes('/video.m3u8'));
+    const resolutions = [];
+
+    matches.forEach((line) => {
+      const current = String(line || '').trim();
+      if (!current) return;
+      const name = current.replace('/video.m3u8', '') || '线路';
+      resolutions.unshift({
+        id: `surrit_${resolutions.length}`,
+        name: name.toUpperCase(),
+        url: `${m3u8Prefix}${uuid}/${current}`,
+        size: "未知"
+      });
+    });
+
+    resolutions.push({
+      id: 'auto',
+      name: '自动',
+      url: masterM3u8,
+      size: "未知"
+    });
+
+    return resolutions;
+  } catch (error) {
+    console.log('[missavnew] surrit seek failed:', masterM3u8, String((error && error.message) || error || ''));
+    return [];
+  }
+}
+
+async function resolveCandidateResolutions(candidateUrl, pageUrl) {
+  try {
+    const { data } = await $fetch.get(candidateUrl, {
+      headers: {
+        'User-Agent': UA,
+        'Referer': pageUrl,
+        'Origin': currentSite
+      },
+      userAgent: UA
+    });
+
+    if (isChallengeHtml(data)) {
+      promptChallenge(pageUrl);
+      throw new Error('MissAV 播放源域名返回了 Cloudflare 验证页，未拿到真实 m3u8');
+    }
+
+    const body = String(data || '');
+    if (!body.includes('#EXTM3U')) {
+      return [];
+    }
+
+    const lines = body.split('\n');
+    const resolutions = [];
+
+    lines.forEach((line, index) => {
+      const current = String(line || '').trim();
+      if (!current || current.startsWith('#')) return;
+      if (!current.includes('.m3u8')) return;
+
+      const absoluteUrl = normalizePlaybackUrl(current, candidateUrl);
+      if (!absoluteUrl) return;
+      if (resolutions.some((item) => item.url === absoluteUrl)) return;
+
+      resolutions.push({
+        id: `line_${resolutions.length}`,
+        name: buildResolutionLabel(current, lines[index - 1] || '', resolutions.length),
+        url: absoluteUrl,
+        size: "未知"
+      });
+    });
+
+    if (!resolutions.some((item) => item.url === candidateUrl)) {
+      resolutions.unshift({
+        id: 'auto',
+        name: '自动',
+        url: candidateUrl,
+        size: "未知"
+      });
+    }
+
+    return resolutions;
+  } catch (error) {
+    console.log('[missavnew] candidate failed:', candidateUrl, String((error && error.message) || error || ''));
+    return [];
+  }
+}
+
 async function getVideoDetail(videoId) {
   await ensureSession();
 
   const url = videoId;
-  const m3u8Prefix = 'https://surrit.com/';
 
   const { data } = await $fetch.get(url, {
     headers: buildHeaders(currentSite),
@@ -200,64 +409,28 @@ async function getVideoDetail(videoId) {
   const cover = $('video').attr('poster') || '';
   const description = $('meta[name="description"]').attr('content') || '';
 
-  let resolutions = [];
-  let uuid = '';
+  let resolutions = await resolveSurritSeekResolutions(html, url);
 
-  const match = html.match(/nineyu\.com\\\/([a-zA-Z0-9-]+)\\\/seek\\\/_0\.jpg/);
-  if (match && match[1]) {
-    uuid = match[1];
-  } else {
-    const uuidMatch = html.match(/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}/);
-    if (uuidMatch) uuid = uuidMatch[0];
-  }
+  if (resolutions.length === 0) {
+    const candidates = extractPlaybackCandidates(html, url);
+    console.log('[missavnew] playback candidates:', candidates);
 
-  if (uuid) {
-    const masterM3u8 = `${m3u8Prefix}${uuid}/playlist.m3u8`;
-    const { data: masterData } = await $fetch.get(masterM3u8, {
-      headers: {
-        'User-Agent': UA,
-        'Referer': url
-      },
-      userAgent: UA
-    });
-    if (isChallengeHtml(masterData)) {
-      promptChallenge(url);
-      throw new Error('MissAV 播放源域名返回了 Cloudflare 验证页，未拿到真实 m3u8');
+    for (const candidate of candidates) {
+      const resolved = await resolveCandidateResolutions(candidate, url);
+      if (resolved.length > 0) {
+        resolutions = resolved;
+        break;
+      }
     }
 
-    if (masterData && masterData.includes('#EXTM3U')) {
-      const lines = masterData.split('\n');
-      lines.forEach((line, index) => {
-        const current = line.trim();
-        if (current.includes('video.m3u8')) {
-          let label = '未知';
-          const prevLine = (lines[index - 1] || '').trim();
-          const resMatch = prevLine.match(/RESOLUTION=\d+x(\d+)/);
-
-          if (resMatch) {
-            label = resMatch[1] + 'p';
-          } else {
-            label = current.split('/')[0].toLowerCase();
-          }
-
-          resolutions.push({
-            id: label,
-            name: label.toUpperCase(),
-            url: `${m3u8Prefix}${uuid}/${current}`,
-            size: "未知"
-          });
-        }
-      });
-
-      resolutions.sort((a, b) => (parseInt(b.name) || 0) - (parseInt(a.name) || 0));
+    if (resolutions.length === 0) {
+      resolutions = candidates.slice(0, 6).map((candidate, index) => ({
+        id: `fallback_${index}`,
+        name: index === 0 ? '自动' : `线路${index}`,
+        url: candidate,
+        size: "未知"
+      }));
     }
-
-    resolutions.unshift({
-      id: 'auto',
-      name: '自动',
-      url: masterM3u8,
-      size: "未知"
-    });
   }
 
   return {

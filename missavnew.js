@@ -209,13 +209,46 @@ async function getVideoDetail(videoId) {
   };
 }
 
-// 在所有分类下搜索
+function parseSearchVideos(data, category) {
+  const $ = cheerio.load(data || '');
+  const list = [];
+
+  $('.thumbnail').each((_, e) => {
+    const href = $(e).find('.text-secondary').attr('href');
+    if (!href) return;
+
+    const title = $(e).find('.text-secondary').text().trim().replace(/\s+/g, ' ');
+    const cover = $(e).find('.w-full').attr('data-src');
+    const remarks = $(e).find('.left-1').text().trim();
+    const duration = $(e).find('.right-1').text().trim();
+
+    list.push({
+      id: href,
+      title: title || '未知标题',
+      cover: cover || '',
+      url: href,
+      description: `状态: ${remarks} | 时长: ${duration}`,
+      createTime: Date.now(),
+      category
+    });
+  });
+
+  return list;
+}
+
+// 在所有分类下搜索，并补充官网标签页的结果
 async function searchAllCategories(keyword, page) {
   await ensureSession();
+  if (!String(keyword || '').trim()) return [];
   const categories = await getCategories();
-  const text = encodeURIComponent(keyword);
+  const text = encodeURIComponent(String(keyword).trim());
   const currentPage = page || 1;
-  let allResults = [];
+
+  // 标签页使用官网独立的 /dm9/ja/tags/ 路径；失败时仍返回普通搜索结果。
+  const tagResults = $fetch.get(`${SITE}/dm9/ja/tags/${text}?page=${currentPage}`, {
+    headers: baseHeaders,
+    userAgent: UA
+  }).then(({ data }) => parseSearchVideos(data, '标签')).catch(() => []);
 
   // 并发请求所有分类
   const promises = categories.map(async (cat) => {
@@ -242,37 +275,17 @@ async function searchAllCategories(keyword, page) {
       userAgent: UA
     });
 
-    const $ = cheerio.load(data || '');
-    const videos = $('.thumbnail');
-    let list = [];
-
-    videos.each((_, e) => {
-      const href = $(e).find('.text-secondary').attr('href');
-      const title = $(e).find('.text-secondary').text().trim().replace(/\s+/g, ' ');
-      const cover = $(e).find('.w-full').attr('data-src');
-      const remarks = $(e).find('.left-1').text().trim();
-      const duration = $(e).find('.right-1').text().trim();
-
-      if (!href) return;
-
-      list.push({
-        id: href,
-        title: title || '未知标题',
-        cover: cover || '',
-        url: href,
-        description: `状态: ${remarks} | 时长: ${duration}`,
-        createTime: Date.now(),
-        category: cat.name
-      });
-    });
-    return list;
+    return parseSearchVideos(data, cat.name);
   });
 
-  const results = await Promise.all(promises);
-  results.forEach(list => {
-    allResults = allResults.concat(list);
+  const results = await Promise.allSettled([...promises, tagResults]);
+  const seen = new Set();
+  return results.flatMap((result) => result.status === 'fulfilled' ? result.value : []).filter((video) => {
+    const key = new URL(video.url, SITE).href;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
   });
-  return allResults;
 }
 async function search(keyword, page) {
   await ensureSession();

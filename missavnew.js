@@ -130,6 +130,55 @@ async function getVideoList(page, categoryUrl, sort) {
   return list;
 }
 
+function getPlaylistDuration(data) {
+  // 只估算完整点播；直播滑动窗口不代表影片总时长。
+  if (typeof data !== 'string' || !/^#EXTM3U/m.test(data) || !/^#EXT-X-ENDLIST\s*$/m.test(data)) return 0;
+  const durations = data.match(/^#EXTINF:([\d.]+),/gm) || [];
+  return durations.reduce((total, line) => total + (parseFloat(line.slice(8)) || 0), 0);
+}
+
+function formatVideoSize(bytes) {
+  const units = ['B', 'KB', 'MB', 'GB', 'TB'];
+  let index = 0;
+  while (bytes >= 1024 && index < units.length - 1) {
+    bytes /= 1024;
+    index++;
+  }
+  return `${bytes.toFixed(1)} ${units[index]}`;
+}
+
+async function fillResolutionSizes(resolutions, bitrates) {
+  const source = resolutions.find(item => bitrates[item.url] > 0);
+  if (!source) return '自适应';
+
+  try {
+    // 各清晰度属于同一影片，仅额外读取一份分片清单，不下载视频分片。
+    const { data } = await $fetch.get(source.url, {
+      headers: baseHeaders,
+      userAgent: UA
+    });
+    const duration = getPlaylistDuration(data);
+    if (!(duration > 0) || !Number.isFinite(duration)) return '自适应';
+
+    const estimates = [];
+    resolutions.forEach(item => {
+      const bytes = bitrates[item.url] * duration / 8;
+      if (!(bytes > 0) || !Number.isFinite(bytes)) return;
+      item.size = `约 ${formatVideoSize(bytes)}`;
+      estimates.push(bytes);
+    });
+
+    // 有档位缺少码率时，不把部分结果当成完整的自动档范围。
+    if (estimates.length !== resolutions.length) return '自适应';
+    const min = formatVideoSize(Math.min(...estimates));
+    const max = formatVideoSize(Math.max(...estimates));
+    return min === max ? `约 ${min}` : `约 ${min}–${max}`;
+  } catch (_) {
+    // 大小仅用于展示；清单请求失败不影响已解析的播放地址。
+    return '自适应';
+  }
+}
+
 async function getVideoDetail(videoId) {
   await ensureSession();
 
@@ -165,14 +214,17 @@ async function getVideoDetail(videoId) {
       userAgent: UA
     });
 
-    if (masterData && masterData.includes('#EXTM3U')) {
+    const bitrates = Object.create(null);
+    if (typeof masterData === 'string' && masterData.includes('#EXTM3U')) {
       const lines = masterData.split('\n');
-      lines.forEach((line, index) => {
+      let streamInfo = '';
+      lines.forEach(line => {
         const current = line.trim();
-        if (current.includes('video.m3u8')) {
+        if (current.startsWith('#EXT-X-STREAM-INF:')) {
+          streamInfo = current.slice('#EXT-X-STREAM-INF:'.length);
+        } else if (current && !current.startsWith('#') && streamInfo) {
           let label = '未知';
-          const prevLine = (lines[index - 1] || '').trim();
-          const resMatch = prevLine.match(/RESOLUTION=\d+x(\d+)/);
+          const resMatch = streamInfo.match(/(?:^|,)RESOLUTION=\d+x(\d+)/);
 
           if (resMatch) {
             label = resMatch[1] + 'p';
@@ -180,23 +232,30 @@ async function getVideoDetail(videoId) {
             label = current.split('/')[0].toLowerCase();
           }
 
+          const variantUrl = new URL(current, masterM3u8).href;
+          // 平均码率优先；站点仅提供峰值码率时，估算可能偏大。
+          const average = streamInfo.match(/(?:^|,)AVERAGE-BANDWIDTH=(\d+)(?:,|$)/);
+          const peak = streamInfo.match(/(?:^|,)BANDWIDTH=(\d+)(?:,|$)/);
+          bitrates[variantUrl] = Number(average && average[1]) || Number(peak && peak[1]) || 0;
           resolutions.push({
             id: label,
             name: label.toUpperCase(),
-            url: `${m3u8Prefix}${uuid}/${current}`,
+            url: variantUrl,
             size: "未知"
           });
+          streamInfo = '';
         }
       });
 
       resolutions.sort((a, b) => (parseInt(b.name) || 0) - (parseInt(a.name) || 0));
     }
 
+    const autoSize = await fillResolutionSizes(resolutions, bitrates);
     resolutions.unshift({
       id: 'auto',
       name: '自动',
       url: masterM3u8,
-      size: "未知"
+      size: autoSize
     });
   }
 

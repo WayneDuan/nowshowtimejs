@@ -478,44 +478,38 @@ async function getPlayinfo(ext) {
 
 async function search(ext) {
     ext = argsify(ext)
-    const keyword = String(ext.text || '').trim()
-    if (!keyword) return jsonify({ list: [] })
+    let cards = []
 
-    const text = encodeURIComponent(keyword)
+    let text = encodeURIComponent(ext.text)
     let page = ext.page || 1
-    const urls = [
-        `${appConfig.site}/cn/search/${text}?page=${page}`,
-        `${appConfig.site}/dm9/ja/tags/${text}?page=${page}`,
-    ]
-    const responses = await Promise.allSettled(urls.map(url => $fetch.get(url, {
-        headers: { 'User-Agent': UA },
-    })))
-    const cards = []
-    const seen = new Set()
+    let url = `${appConfig.site}/cn/search/${text}?page=${page}`
 
-    responses.forEach(response => {
-        if (response.status !== 'fulfilled') return
-        const $ = cheerio.load(response.value.data || '')
-        $('.thumbnail').each((_, e) => {
-            const href = $(e).find('.text-secondary').attr('href')
-            if (!href) return
-            const key = new URL(href, appConfig.site).href
-            if (seen.has(key)) return
-            seen.add(key)
+    const { data } = await $fetch.get(url, {
+        headers: {
+            'User-Agent': UA,
+        },
+    })
 
-            const title = $(e).find('.text-secondary').text().trim().replace(/\s+/g, ' ')
-            const cover = $(e).find('.w-full').attr('data-src')
-            const remarks = $(e).find('.left-1').text().trim()
-            const duration = $(e).find('.right-1').text().trim()
+    const $ = cheerio.load(data)
 
-            cards.push({
-                vod_id: href,
-                vod_name: title,
-                vod_pic: cover,
-                vod_remarks: remarks,
-                vod_duration: duration,
-                ext: { url: href },
-            })
+    const videos = $('.thumbnail')
+    videos.each((_, e) => {
+        const href = $(e).find('.text-secondary').attr('href')
+        const title = $(e).find('.text-secondary').text().trim().replace(/\s+/g, ' ')
+        const cover = $(e).find('.w-full').attr('data-src')
+        const remarks = $(e).find('.left-1').text().trim()
+        const duration = $(e).find('.right-1').text().trim()
+
+        cards.push({
+            vod_id: href,
+            vod_name: title,
+            vod_pic: cover,
+            vod_remarks: remarks,
+            vod_duration: duration,
+
+            ext: {
+                url: href,
+            },
         })
     })
     return jsonify({

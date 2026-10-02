@@ -37,14 +37,14 @@ async function getCategories() {
   if (tabsCache) return tabsCache;
 
   const tabs = [
-    { name: '中文字幕', ext: { url: SITE + '/dm265/ja/chinese-subtitle' } },
-    { name: '无码流出', ext: { url: SITE + '/dm817/ja/uncensored-leak' } },
-    { name: '最近更新', ext: { url: SITE + '/dm634/ja/release' } },
-    { name: 'FC2', ext: { url: SITE + '/dm541/ja/fc2' } },
+    { name: '中文字幕', ext: { url: SITE + '/dm265/cn/chinese-subtitle' } },
+    { name: '无码流出', ext: { url: SITE + '/dm817/cn/uncensored-leak' } },
+    { name: '最近更新', ext: { url: SITE + '/dm634/cn/release' } },
+    { name: 'FC2', ext: { url: SITE + '/dm541/cn/fc2' } },
     { name: '麻豆传媒', ext: { url: SITE + '/dm34/cn/madou' } },
-    { name: '无删减', ext: { url: SITE + '/dm817/ja/uncensored-leak' } },
-    { name: '中直播', ext: { url: SITE + '/ja/clive' } },
-    { name: '韩直播', ext: { url: SITE + '/ja/klive' } }
+    { name: '无删减', ext: { url: SITE + '/dm817/cn/uncensored-leak' } },
+    { name: '中直播', ext: { url: SITE + '/cn/clive' } },
+    { name: '韩直播', ext: { url: SITE + '/cn/klive' } }
   ];
 
   tabsCache = tabs.map((tab, index) => ({

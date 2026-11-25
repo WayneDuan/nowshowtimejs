@@ -178,7 +178,7 @@ async function getVideoDetail(videoId) {
   await ensureSession();
 
   const url = videoId;
-  const m3u8Prefix = 'https://surrit.com/';
+  const m3u8Prefix = 'https://c.surrit.com/';
 
   const { data } = await $fetch.get(url, {
     headers: baseHeaders,
@@ -194,7 +194,7 @@ async function getVideoDetail(videoId) {
   let resolutions = [];
   let uuid = '';
 
-  const match = data.match(/surrit\.com\\\/(.+)\\\/seek\\\/_0\.jpg/)
+  const match = data.match(/c\.surrit\.com\\\/(.+)\\\/seek\\\/_0\.jpg/)
   if (match && match[1]) {
      uuid = match[1]
   } else {
